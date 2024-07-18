@@ -4,7 +4,7 @@ import cors from "cors"
 import dotenv from "dotenv"
 import helmet from 'helmet';
 import { connectDB } from './DL/db';
-import itemRoute from './Routes/admin.route'
+import itemRoute from './Routes/item.route'
 import homeImageRoute from './Routes/homeImage.route'
 import adminRoute from './Routes/admin.route'
 

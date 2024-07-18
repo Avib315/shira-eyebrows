@@ -3,7 +3,7 @@ export function sendProdects(id) {
     const products = [
         {
             name: "סרום לפנים",
-            id: "001",
+            _id: "001",
             englishName:"serom",
             mainImage: "serum.jpg",
             quantity: 10,
@@ -12,7 +12,7 @@ export function sendProdects(id) {
         },
         {
             name: "קרם לחות",
-            id: "002",
+            _id: "002",
             englishName:"serom",
             mainImage: "moisturizer.jpg",
             quantity: 15,
@@ -21,7 +21,7 @@ export function sendProdects(id) {
         },
         {
             name: "שמן גוף",
-            id: "003",
+            _id: "003",
             englishName:"serom",
             mainImage: "bodyoil.jpg",
             quantity: 20,
@@ -30,7 +30,7 @@ export function sendProdects(id) {
         },
         {
             name: "מסכת שיער",
-            id: "004",
+            _id: "004",
             englishName:"serom",
             mainImage: "hairmask.jpg",
             quantity: 8,
@@ -39,7 +39,7 @@ export function sendProdects(id) {
         },
         {
             name: "מי פנים",
-            id: "005",
+            _id: "005",
             englishName:"serom",
             mainImage: "toner.jpg",
             quantity: 12,
@@ -48,7 +48,7 @@ export function sendProdects(id) {
         },
         {
             name: "קרם עיניים",
-            id: "006",
+            _id: "006",
             englishName:"serom",
             mainImage: "eyecream.jpg",
             quantity: 10,

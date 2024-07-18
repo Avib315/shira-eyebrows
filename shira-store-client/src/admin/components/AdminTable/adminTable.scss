@@ -44,20 +44,21 @@
             text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
 
             td {
-                background:#FFFFFF;
-                padding:.8rem;
-                vertical-align:middle;
-                font-weight:300;
-                font-size:var(--m-f);
+                background: #FFFFFF;
+                padding: .8rem;
+                vertical-align: middle;
+                font-weight: 300;
+                font-size: var(--m-f);
                 text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
                 border-right: 1px solid #C1C3D1;
+                transition: .3s;
             }
+
+           
         }
 
         tr:hover td {
             cursor: pointer;
-            background: var(--pink);
-            color: #FFFFFF;
             border-top: 1px solid #22262e;
         }
 
@@ -73,23 +74,26 @@
             background: #EBEBEB;
         }
 
-        tr:nth-child(odd):hover td {
-            background: var(--pink);
-        }
+
         tr:last-child td:first-child {
-            border-bottom-left-radius:3px;
-          }
-           
-          tr:last-child td:last-child {
-            border-bottom-right-radius:3px;
-          }
-           
-      
+            border-bottom-left-radius: 3px;
+        }
+
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 3px;
+        }
+        tr.selected td {
+            transform: scale(1.02);
+            color: #ffffff;
+            background-color: var(--pink);
+        }
+
 
 
 
     }
 }
+
 @media (min-width: 1025px) and (max-width: 3024px) {
     .AdminTable {
         thead {
@@ -100,9 +104,10 @@
                 }
             }
         }
+
         tbody {
             tr {
-                td{
+                td {
                     font-size: var(--m-f);
                 }
             }
@@ -111,7 +116,7 @@
 }
 
 @media (max-width: 1024px) {
-    
+
     .AdminTable {
         thead {
             tr {
@@ -121,9 +126,10 @@
                 }
             }
         }
+
         tbody {
             tr {
-                td{
+                td {
                     font-size: var(--xs-f);
                     padding: .6rem 0.1rem;
                 }

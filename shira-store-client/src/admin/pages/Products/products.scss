@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    overflow-y: auto;
 
     .containerTable {
         width: 100%;
@@ -15,25 +16,53 @@
         align-items: center;
         gap: 1rem;
     }
-    .addNewProduct{
-        padding: .6rem 1rem;
-        font-size: var(--l-f);
-        margin: 1rem 0;  
-        background-color: var(--black);
-        color: #fff;
-        border-radius: 20px;
-        border: none;
-        &:hover{  
-            color: var(--pink);             
+
+    .btnEditorContainer {
+        margin: 1rem 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        max-width: 480px;
+        .buttonEditor {
+            padding: .6rem 1rem;
+            background-color: var(--black);
+            color: #fff;
+            border-radius: 20px;
+            border: none;
+
+            &:hover {
+                color: var(--pink);
+            }
+
+            &:disabled {
+                opacity: .4;
+                cursor: not-allowed;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
         }
     }
 }
 
 @media (min-width: 1025px) and (max-width: 3024px) {
-    .Products {}
+    .Products {
+        .btnEditorContainer {
+            .buttonEditor {
+                font-size: var(--l-f);
+            }
+        }
+    }
 }
 
 @media (max-width: 1024px) {
 
-    .Products {}
+    .Products {
+        .btnEditorContainer {
+            .buttonEditor {
+                font-size: var(--xs-f);
+            }
+        }
+    }
 }

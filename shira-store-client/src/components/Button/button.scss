@@ -1,0 +1,18 @@
+.Button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem .5rem;
+    width: 60%;
+    font-size: var(--l-f);
+    font-weight: 500;
+    max-width: 280px;
+    color: #ffffff;
+    border: none;
+    background-color: var(--black);
+    border-radius: 20px;
+}
+.Button:hover{
+    color: var(--pink);
+    cursor: pointer;
+}

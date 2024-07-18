@@ -1,0 +1,262 @@
+.AdminHeader {
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    .bg-nav {
+        width: 100%;
+        height: 100%;
+        background-image: url(../../../assets/images/background-img/pexels-steve-1266808.jpg);
+        background-size: cover;
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: -1;
+        opacity: .24;
+        filter: blur(4px);
+    }
+    .toggleNav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2em;
+        background: none;
+        border: none;
+        justify-content: start;
+        position: absolute;
+        left: 2%;
+    }
+
+    .closeBtn {
+        font-size: 1.6rem;
+    }
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+
+        h1 {
+            flex-grow: 3;
+            width: 60%;
+            user-select: none;
+            font-size: var(--xl-f);
+            font-family: DMSans;
+            color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row-reverse;
+            gap: 5px;
+
+            img {
+                width: 60px;
+                height: 80px;
+            }
+        }
+    }
+
+    nav {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .logOut {
+            padding: .2rem .6rem;
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+
+            span {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        ul {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            list-style-type: none;
+
+            // padding-top: 1rem;   
+            li {
+
+                border-top: 1px solid #a5a5a5;
+                width: 100%;
+
+                button.navBtns {
+                    background:none;
+                    border: none;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: row;
+                    gap: 10px;
+                    flex-grow: 2;
+                    font-size: var(--m-f);
+                    width: 100%;
+                    display: flex;
+                    font-weight: 400;
+                    color: #fff;
+                    color: var(--black);
+                }
+            }
+
+            li:last-child {
+                border-bottom: 1px solid #a5a5a5;
+            }
+
+
+        }
+    }
+
+}
+
+@media (min-width: 1025px) and (max-width: 3024px) {
+    header.AdminHeader {
+        max-width: 400px;
+        max-width: 280px;
+        flex-direction: column;
+        box-shadow: 0 0 6px -2px #333;
+        width: 20%;
+        height: 100%;
+        position: relative;
+
+        .logo {
+            width: 100%;
+            height: 20%;
+            padding: 2rem;
+        }
+
+
+        .barNav,
+        .closeBtn {
+            display: none;
+        }
+
+
+        
+    
+        nav {
+            justify-content: space-between;
+            padding-bottom: 2rem;
+            height: 100%;
+            background-color: rgb(255 255 255 / 66%);
+            -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(14px);
+            position: relative;
+
+            ul {
+                justify-content: space-around;
+
+                button.navBtns {
+                    padding: 1rem;
+                    color: var(--black);
+                    transition: .2s;
+                }
+
+                button.navBtns:hover {
+                    text-decoration: underline;
+                    scale: 1.2;
+                    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0);
+                    // color: var(--pink);
+                }
+
+            }
+
+            .logOut {
+                border: none;
+                padding: .4rem .6rem;
+                border-radius: 10px;
+                font-size: var(--m-f);
+                color: var(--black);
+                transition: .4s;
+                background-color: rgba(255, 255, 255, 0.66);
+                backdrop-filter: blur(14px);
+                box-shadow: 0 0 6px -4px #000;
+
+                &:hover {
+                    box-shadow: 0 0 4px 0px #000;
+                    scale: 1.02;
+                }
+            }
+
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    header.AdminHeader {
+        justify-content: center;
+        width: 100%;
+        height: 14vh;
+        padding: 0 .5rem;
+        background-size: cover;
+        background-image: url(../../../assets//images/background-img/pettern2.jpg);
+        position: fixed;
+        top: 0;
+
+        .barNav {
+            display: flex;
+        }
+        
+        nav {
+            position: absolute;
+            top: 99.8%;
+            background-color: #f1f1f1;
+            display: flex;
+            width: 100%;
+            z-index: 2;
+            overflow-y: hidden;
+            right: 0;
+            
+            ul {
+                font-size: var(--l-f);
+                text-align: center;
+                justify-content: center;
+                flex-direction: column;
+                
+                li {
+                    border-top: 1px solid #a5a5a5;
+                    padding: 1rem;
+                    
+                    button.navBtns {
+                        color: var(--black);
+                    }
+                }
+                
+                li:first-child {
+                    border-top: none;
+                }
+            }
+            
+            .logOut {
+                background: none;
+                border: none;
+                color: #fff;
+                padding: 1rem;
+                font-size: var(--m-f);
+                color: var(--black);
+                
+            }
+        }
+        .bg-nav.xl {
+            display: none;
+        }
+        
+        nav.closeNav {
+            // animation: slideUp .2s linear 0s 1 alternate forwards;
+            display: none;
+        }
+        
+        nav.openNav {
+            display: flex;
+        }
+    }
+}

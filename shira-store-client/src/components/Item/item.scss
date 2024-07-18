@@ -1,0 +1,138 @@
+.Item {
+    display: flex;
+    padding: 2px;
+    background-color: #f6f6f6;
+    margin: 2%;
+    border-radius: 10px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: end;
+    position: relative;
+
+    &:hover {
+        box-shadow: 0 0 2px 0 #333333;
+
+    }
+
+    .containerImageSlider {
+        width: 96%;
+        height: 52%;
+        object-fit: contain;
+        z-index: 4;
+        position: absolute;
+        top: 2%;
+        background-color: #f9f9f9;
+    }
+
+    a {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: end;
+        width: 100%;
+        height: 93%;
+        z-index: 3;
+        padding: 8% 2%;
+        text-align: center;
+        gap: 2%;
+
+        &:hover p {
+            text-decoration: underline;
+        }
+
+        p {
+            user-select: none;
+            color: #333333;
+        }
+
+    }
+
+    .outOfStock {
+        z-index: 5;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        // rotate:-30deg;
+        background-color: #333333;
+        border-radius: 20px;
+        color: #fff;
+        padding: .5rem;
+        width: 70%;
+        text-align: center;
+    }
+
+    .tag {
+        position: absolute;
+        top: 4%;
+        left: 4%;
+        z-index: 5;
+        font-size: var(--xxs-f);
+        background-color: #333333;
+        color: #fff;
+        padding: 0.05rem 0.4rem;
+        border-radius: 20px;
+    }
+}
+
+.disabledItem {
+    opacity: 0.7;
+    pointer-events: none;
+
+    &:hover {
+        box-shadow: none !important;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 3024px) {
+    .Item {
+        width: 20%;
+        height: 50vh;
+        max-width: 280px;
+        .xl-screen{
+            display: flex;
+        }
+        .s-screen {
+            display: none;
+        }
+        
+        a {
+            
+            p {
+                font-size: var(--m-f);
+            }
+            
+            .price {
+                font-size: var(--m-f);
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .Item {
+        max-width: 180px;
+        width: 44%;
+        height: 42vh;
+        max-height: 320px;
+        
+        .xl-screen{
+            display: none;
+        }
+        .s-screen {
+            display: flex;
+        }
+
+        a {
+
+            p {
+                font-size: var(--s-f);
+            }
+
+            .price {
+                font-size: var(--s-f);
+            }
+        }
+    }
+}

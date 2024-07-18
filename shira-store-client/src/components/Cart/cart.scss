@@ -1,0 +1,178 @@
+.Cart {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+
+    .cartContainer {
+        background-color: #fff;
+        z-index: 100;
+        width: 100%;
+        max-width: 500px;
+        height: 86vh;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: slideLeft .25s linear 0s 1 alternate forwards;
+        transform: translateX(150%);
+        overflow: hidden;
+
+        .noItemP {
+            margin-top: 10%;
+            text-align: center;
+            font-size: var(--l-f);
+
+            .toTheStoreBtn {
+                background-color: transparent;
+                font-size: var(--l-f);
+                border: none;
+                color: #6490ff;
+            }
+        }
+
+        .itemsContainer {
+            width: 100%;
+            padding: 4% 0;
+            height: 60%;
+            background-color: #fff;
+            overflow-y: auto;
+
+
+            .item {
+                width: 100%;
+                height: 14vh;
+                padding: 2% 0;
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid #c3c3c3;
+                gap: 2%;
+
+                img {
+                    width: 20%;
+                    height: 100%;
+                }
+
+                p {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                }
+
+                .name {
+                    overflow-x: hidden;
+                    width: 50%;
+                    font-size: var(--s-f);
+                }
+
+                .price {
+                    width: 20%;
+                    font-size: var(--s-f);
+
+                }
+
+                .deleteFromCartBtn {
+                    background: none;
+                    color: #333;
+                    border: none;
+                    // color: #6490ff;
+                    font-size: var(--l-f);
+                    width: 10%;
+                }
+            }
+
+            .item:first-child {
+                border-top: 1px solid #c3c3c3;
+            }
+        }
+
+        .sumItems {
+            margin: 4% 0;
+
+            h2 {
+                font-size: var(--xl-f);
+            }
+        }
+
+        .btnCheckOut {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: .8rem .5rem;
+            width: 60%;
+            font-size: var(--l-f);
+            font-weight: 500;
+            border: none;
+            border-radius: 20px;
+            background-color: var(--black);
+            color: #fff;
+
+            &:hover {
+                color: var(--pink);
+            }
+        }
+
+        .btnAndTitleContainer {
+            background-image: url(../../assets/images/background-img/pettern2.jpg);
+            background-size: cover;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 5%;
+
+            h2 {
+                font-size: 1.7rem;
+                font-weight: 400;
+            }
+
+            button {
+                font-size: 1rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 6px;
+                border: none;
+                padding: .6em;
+                background-color: var(--black);
+                color: #fff;
+
+                &:hover {
+                    color: var(--pink);
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 3024px) {
+    .Cart {
+        .cartContainer {
+            top: 10vh;
+            right: 2%;
+            border-radius: 20px;
+            box-shadow: 0 0 4px -2px #000000;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .Cart {
+        .cartContainer {
+
+            border-radius: 20px;
+            box-shadow: 0 0 4px -2px #000000;
+            top: 10vh;
+            height: 90vh;
+        }
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(150%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

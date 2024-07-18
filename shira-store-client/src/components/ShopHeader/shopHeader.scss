@@ -1,0 +1,14 @@
+.ShopHeader{
+    width: 100%;
+    height: 12vh;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../../assets/images/background-img/pettern2.jpg);
+    padding: 2%;
+    display:flex ;
+    justify-content: start;
+    align-items: center;
+    h2{
+        font-size: var(--xxl-f);
+    }
+}

@@ -1,0 +1,13 @@
+.ShopSection{
+    width: 100%;
+    min-height:46vh ;
+    .shopMain{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: start;
+        justify-content: center;
+        padding:4% 2%;
+        padding-bottom: 8%;
+    }
+}

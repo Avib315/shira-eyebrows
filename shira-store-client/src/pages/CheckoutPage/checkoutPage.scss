@@ -1,0 +1,71 @@
+.CheckoutPage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2vh;
+    .headerTitle {
+        width: 100%;
+        height: 12vh;
+        background-size: cover;
+        background-position: center;
+        background-image: url(../../assets/images/background-img/pattern3.jpg);
+        padding: 2%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        
+        h2 {
+            font-size: var(--xxl-f);
+        }
+    }
+    .main{
+        padding:4% 2%;
+        width: 100%;
+        min-height: 45vh;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        justify-content: space-around;
+        align-items: center;
+        gap: 1rem;
+        .container{
+            margin-top: 2vh;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            
+        }
+        .bg-img{
+            background-image: url(../../assets/images/background-img/pexels-steve-1266808.jpg);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: .4;
+            filter: blur(6px);
+            background-size: cover;
+        }
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 3024px) {
+    .CheckoutPage {
+        .main{
+            .container{
+                width: 45%;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .CheckoutPage {
+        .main{
+            .container{
+                width: 100%;
+            }
+        }
+    }
+}

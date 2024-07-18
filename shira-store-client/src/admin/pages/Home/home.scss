@@ -1,0 +1,135 @@
+.Home {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+    padding: 2rem 0;
+
+    .reviewPage {
+        box-shadow: 0 0 6px -3px #000;  
+        .titleAndBtnContainer {
+            padding: 1rem;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+
+            h2 {
+                font-size: var(--xl-f);
+            }
+            
+            button.ToggleReview {
+                font-size: var(--xl-f);
+                background: none;
+                border: none;
+                transition: .2s;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .ToggleReview.close{
+                transform: rotate(180deg);
+            }
+        }
+
+        .MainSummary {
+            flex-direction: column;
+
+            .summaryAndBtnContainer {
+                width: 90%;
+
+                h3 {
+                    width: 100%;
+                }
+            }
+
+            button,
+            a {
+                display: none;
+            }
+
+            .imageSliderContainer {
+                width: 80%;
+            }
+        }
+    }
+    .userTools{
+        display: flex;
+        width: 50%;
+        flex-wrap: wrap;
+
+    }
+    .imagesContainer{
+        width: 100%;
+        display: flex;
+        height: 16rem;
+        padding: 1rem;
+        box-shadow: 0 0 4px 0 #333;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+    .imagesContainer , .textAreaContainer{
+        padding: 1rem;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 3024px) {
+    .Home {
+        padding: 4px;
+        .reviewPage {
+            width: 40%;
+            border-radius: 20px;
+           
+            .titleAndBtnContainer {
+                justify-content: center;
+                
+                h2 {
+                    font-size: var(--xl-f);
+                }
+                
+                button.ToggleReview  {
+                    display: none;
+                }
+            }
+        }
+    }
+    .userTools{
+        gap:5%;
+        width: 50%;
+
+        .textAreaContainer{
+            width: 45%;
+            height: 60%;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    
+    .Home {
+        justify-content: center;
+        align-content: baseline;
+        
+        .reviewPage {
+            background-color: #f1efed;
+            padding: 1rem 0;
+            width: 100%;
+            .summaryContainer.close{
+                display: none;
+            }
+            
+            button.ToggleReview {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        .userTools{
+            width: 90%;
+            .textAreaContainer{
+                width: 100%;
+                height: 50vh;
+                max-height: 400px;
+            }
+        }
+    }
+}

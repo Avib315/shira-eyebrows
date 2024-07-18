@@ -1,0 +1,137 @@
+@font-face {
+  font-family: Heebo-regular;
+  src: url(./assets/fonts/Heebo/Heebo-Medium.ttf);
+}
+
+@font-face {
+  font-family: Heebo-bold;
+  src: url(./assets/fonts/Heebo/Heebo-Bold.ttf);
+}
+
+@font-face {
+  font-family: Heebo-med;
+  src: url(./assets/fonts/Heebo/Heebo-Medium.ttf);
+}
+
+$breakpoint-sm: 450px;
+$breakpoint-big: 1024px;
+@media (max-width:450px) {
+  :root {
+    --xxs-f: .6rem;
+    --xs-f: .8rem;
+    --s-f: .85rem;
+    --m-f: 1rem;
+    --l-f: .9rem;
+    --xl-f: 1.4rem;
+    --xxl-f: 2rem;
+    --xxxl-f: 2.6rem;
+  }
+}
+
+@media (min-width: 451px) and (max-width:1024px) {
+  :root {
+    --xxs-f: .6rem;
+    --xs-f: .7rem;
+    --s-f: .8rem;
+    --m-f: 1rem;
+    --l-f: 1rem;
+    --xl-f: 1.5rem;
+    --xxl-f: 2rem;
+    --xxxl-f: 3.2rem;
+  }
+}
+
+@media (min-width: 1025px) and (max-width:2800px) {
+  :root {
+    --xxs-f: .6rem;
+    --xs-f: .75rem;
+    --s-f: .8rem;
+    --m-f: 1rem;
+    --l-f: 1.1rem;
+    --xl-f: 1.6rem;
+    --xxl-f: 2.2rem;
+    --xxxl-f: 3.4rem;
+  }
+}
+
+:root {
+  --pink: #CA9291;
+  --prime-white: #1b1b1b;
+   --black:#1e1e1e;
+}
+
+body {
+  direction: rtl;
+  margin: 0;
+}
+
+* {
+  font-family: Heebo-regular;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  font-family: Heebo-bold;
+  font-size: var(--xxl-f);
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 300;
+  font-family: Heebo-med;
+  text-align: center;
+  font-size: var(--xl-f);
+}
+
+h3,
+h4,
+h5 {
+  text-align: center;
+  font-weight: 300;
+  font-size: var(--l-f);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  padding: 0;
+  margin: 0;
+  margin-block: 0;
+}
+
+p,
+input {
+  font-size: var(--m-f);
+}
+
+a {
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+input[type="submit"]:hover,
+a:hover,
+button:hover {
+  cursor: pointer;
+}

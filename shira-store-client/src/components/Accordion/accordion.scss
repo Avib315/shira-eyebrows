@@ -1,0 +1,38 @@
+.Accordion{
+    width: 100%;
+    border-bottom: 1px solid #333;
+    // border-collapse: collapse;
+    margin: 0px;
+
+    .btnToggle{
+        border-collapse: collapse;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding:5% 2%;
+        background: none;
+        border: none;
+        border-top: 1px solid #333;
+        h3 , span{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: var(--l-f);
+            color: #333;
+            transition: .5s;
+        }
+        span.arrowClose{
+            transform: rotate(180deg);
+        }
+    }
+    .btnToggle:nth-child(2){
+        border-top: none;
+    }
+}
+.Accordion:nth-child(2){
+    border-bottom: none;
+    .btnToggle{
+        border-top: none;
+    }
+}

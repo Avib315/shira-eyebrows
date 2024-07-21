@@ -5,8 +5,10 @@
     gap: 1rem;
     padding: 0 1rem;
     overflow-x: auto;
+    border-radius: 10px;
     align-items: center;
     .btnAndImgContainer{
+        border-radius: 10px;
         width: 12rem;
         height: 12rem;
         flex-grow: 0;
@@ -19,6 +21,7 @@
         background-color: #fff;
         
         img{
+            border-radius: 10px 10px 0 0;
             width: 80%;
             height: 80%;
             object-fit: fill;

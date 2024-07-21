@@ -1,45 +1,55 @@
 .Products {
     width: 100%;
     height: 100%;
-    padding: 2rem 1rem;
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: space-around;
     overflow-y: auto;
+    padding: 10px;
 
-    .containerTable {
-        width: 100%;
-        height: 80%;
+    .mainContainer {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
         align-items: center;
-        gap: 1rem;
-    }
-
-    .btnEditorContainer {
-        margin: 1rem 0;
-        width: 100%;
-        display: flex;
+        flex-direction: column;
+        height: 100%;
         justify-content: space-around;
-        max-width: 480px;
-        .buttonEditor {
-            padding: .6rem 1rem;
-            background-color: var(--black);
-            color: #fff;
-            border-radius: 20px;
-            border: none;
 
-            &:hover {
-                color: var(--pink);
-            }
+        .containerTable {
+            width: 100%;
+            height: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
 
-            &:disabled {
-                opacity: .4;
-                cursor: not-allowed;
+        .btnEditorContainer {
+            margin: 1rem 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            max-width: 480px;
+
+            .buttonEditor {
+                padding: .6rem 1rem;
+                background-color: var(--black);
+                color: #fff;
+                border-radius: 20px;
+                border: none;
 
                 &:hover {
-                    color: #fff;
+                    color: var(--pink);
+                }
+
+                &:disabled {
+                    opacity: .4;
+                    cursor: not-allowed;
+
+                    &:hover {
+                        color: #fff;
+                    }
                 }
             }
         }
@@ -48,9 +58,13 @@
 
 @media (min-width: 1025px) and (max-width: 3024px) {
     .Products {
-        .btnEditorContainer {
-            .buttonEditor {
-                font-size: var(--l-f);
+        .mainContainer {
+            width: 100%;
+
+            .btnEditorContainer {
+                .buttonEditor {
+                    font-size: var(--l-f);
+                }
             }
         }
     }
@@ -59,9 +73,14 @@
 @media (max-width: 1024px) {
 
     .Products {
-        .btnEditorContainer {
-            .buttonEditor {
-                font-size: var(--xs-f);
+        flex-direction: column;
+        .mainContainer {
+            width: 100%;
+
+            .btnEditorContainer {
+                .buttonEditor {
+                    font-size: var(--xs-f);
+                }
             }
         }
     }

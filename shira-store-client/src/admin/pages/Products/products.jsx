@@ -28,11 +28,11 @@ export default function Products() {
   ];
 
   function openProductEditor(action) {
-    setProductEditor({...productEditor, action: action })
+    setProductEditor({ ...productEditor, action: action })
   }
   function popUpDelete() {
     const popUpDelete = () => {
-      return <AdminPopUp title={"המוצר ימחק לצמיתות האם להמשיך?"} primeBtn={{ text: "מחק", func: () => { } }} subBtn={{ text: "ביטול", func: hidePopUp}} />
+      return <AdminPopUp title={"המוצר ימחק לצמיתות האם להמשיך?"} primeBtn={{ text: "מחק", func: () => { } }} subBtn={{ text: "ביטול", func: hidePopUp }} />
     }
     setPopValue(popUpDelete)
     showPopUp(false)
@@ -43,17 +43,18 @@ export default function Products() {
   }
   return (
     <div className='Products'>
-      <div className="containerTable">
-        <AdminTable theadArray={theadArray} tbodyArray={products} trSelectedId={productEditor.productId} trFunction={selectProduct} />
-      </div>
-        <div className='btnEditorContainer'>
-
-        <button onClick={() => { openProductEditor("post") }} className='buttonEditor'>הוספת מוצר חדש</button>
-        <button onClick={() => { openProductEditor("put") }} disabled={productEditor.productId == ""} className='buttonEditor'>  עריכת מוצר</button>
-        <button onClick={popUpDelete} disabled={productEditor.productId == ""} className='buttonEditor'>מחיקת מוצר</button>
+      <div className='mainContainer'>
+        <div className="containerTable">
+          <AdminTable theadArray={theadArray} tbodyArray={products} trSelectedId={productEditor.productId} trFunction={selectProduct} />
         </div>
+        <div className='btnEditorContainer'>
+          <button onClick={() => { openProductEditor("post") }} className='buttonEditor'>הוספת מוצר חדש</button>
+          <button onClick={() => { openProductEditor("put") }} disabled={productEditor.productId == ""} className='buttonEditor'>  עריכת מוצר</button>
+          <button onClick={popUpDelete} disabled={productEditor.productId == ""} className='buttonEditor'>מחיקת מוצר</button>
+        </div>
+      </div>
       {productEditor.action == "put" && productEditor.productId != "" && <div className="productEditorContainer"><AdminProductEditor productId={productEditor.productId} action={productEditor.action} /></div>}
-      {productEditor.action == "post"  && <div className="productEditorContainer"><AdminProductEditor productId={productEditor.productId} action={productEditor.action} /></div>}
+      {productEditor.action == "post" && <div className="productEditorContainer"><AdminProductEditor productId={productEditor.productId} action={productEditor.action} /></div>}
     </div>
   )
 }

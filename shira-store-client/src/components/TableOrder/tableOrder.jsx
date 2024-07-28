@@ -21,7 +21,7 @@ export default function TableOrder() {
         <div className='TableOrder'>
             <h2>סיכום הזמנה</h2>
             {items.length > 1 && items.map((item, i) => (
-                <div className='itemOrderDisplay' key={item.id}> 
+                <div className='itemOrderDisplay' key={"itemOrderDisplay-key-" + i}> 
                        <img src={item.images[0].src} alt={item.images[0].alt} />
                         <p className='p name'>{item.name}</p>
                         <p className='p'>{item.inStock}</p>

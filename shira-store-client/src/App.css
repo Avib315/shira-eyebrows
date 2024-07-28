@@ -5,7 +5,8 @@
     min-height: 100vh;
 }
 main{
-  padding-top: 12vh;
+  padding-top: 14vh;
+  background-color: #f7f7f7;
 }
 .img {
   background-position: center;

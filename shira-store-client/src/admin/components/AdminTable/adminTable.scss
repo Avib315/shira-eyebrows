@@ -52,6 +52,11 @@
                 text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
                 border-right: 1px solid #C1C3D1;
                 transition: .3s;
+                img{
+                    width: 60px;
+                    height: 60px;
+                    margin: auto;
+                }
             }
 
            
@@ -74,7 +79,7 @@
             background: #EBEBEB;
         }
 
-
+        
         tr:last-child td:first-child {
             border-bottom-left-radius: 3px;
         }

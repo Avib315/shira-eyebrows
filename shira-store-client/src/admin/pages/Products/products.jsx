@@ -18,14 +18,14 @@ export default function Products() {
     getProducts()
   }, [])
   const theadArray = [
-    "שם",
-    "מזהה",
-    "שם באנגלית",
-    "תמונה ראשית",
-    "כמות",
-    "תגית",
-    "מחיר"
-  ];
+    { text: "שם" , type:"string" },
+    { text: "מזהה" , type:"string" },
+    { text: "שם באנגלית" , type:"string" },
+    { text: "תמונה ראשית", type:"img"  },
+    { text: "כמות", type:"string"  },
+    { text: "תגית" , type:"string" },
+    { text: "מחיר", type:"string"  }
+  ]
 
   function openProductEditor(action) {
     setProductEditor({ ...productEditor, action: action })

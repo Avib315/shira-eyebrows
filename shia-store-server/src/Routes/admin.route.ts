@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import express from 'express';
 import JWT from '../BL/middleware/JWT/JWT';
 import { JwtPayload } from 'jsonwebtoken';
+import adminLogic from '../BL/logic/admin.logic';
 
 const router = express.Router()
 
@@ -10,7 +11,9 @@ const router = express.Router()
 // login admin
 router.post('/login', async (req: Request, res: Response) => {
     try {
-        res.status(200).send('Welcome')
+        const { body: { username, password } } = req
+        const tokens = await adminLogic.login(username as string, password as string)
+        res.status(200).send(tokens)
     } catch (error) {
         res.status(400).send(error)
     }

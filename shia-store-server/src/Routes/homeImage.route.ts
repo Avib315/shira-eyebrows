@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import express from 'express';
 import { JWTAuth } from '../BL/middleware/JWT/JWT.mw';
+import homeImageLogic from '../BL/logic/homeImage.logic';
 
 const router = express.Router()
 
@@ -9,43 +10,54 @@ const router = express.Router()
 // get image
 router.get('/', async (req: Request, res: Response) => {
     try {
-        res.status(200).send('Welcome')
+        const filter = req.query
+        const homeImage = await homeImageLogic.getHomeImage(filter)
+        res.status(200).send(homeImage)
     } catch (error) {
         res.status(400).send(error)
     }
 })
 
-// get many images
+// get many homeImages
 router.get('/many', async (req: Request, res: Response) => {
     try {
-        res.status(200).send('Welcome')
+        const filter = req.query
+        const homeImages = await homeImageLogic.getManyHomeImages(filter)
+        res.status(200).send(homeImages)
     } catch (error) {
         res.status(400).send(error)
     }
 })
 
-// create image
+// create homeImage
 router.post('/', JWTAuth, async (req: Request, res: Response) => {
     try {
-        res.status(200).send('Welcome')
+        const { data } = req.body
+        const newHomeImage = await homeImageLogic.createHomeImage(data);
+        res.status(200).send(newHomeImage)
     } catch (error) {
         res.status(400).send(error)
     }
 })
 
-// update image
+// update homeImage
 router.put('/', JWTAuth, async (req: Request, res: Response) => {
     try {
-        res.status(200).send('Welcome')
+        const { data } = req.body
+        const { _id } = req.query
+        const homeImage = await homeImageLogic.updateHomeImage(_id as string, data);
+        res.status(200).send(homeImage)
     } catch (error) {
         res.status(400).send(error)
     }
 })
 
-//delete image
+//delete homeImage
 router.delete('/', JWTAuth, async (req: Request, res: Response) => {
     try {
-        res.status(200).send('Welcome')
+        const { _id } = req.query
+        const homeImage = await homeImageLogic.deleteHomeImage(_id as string);
+        res.status(200).send(homeImage)
     } catch (error) {
         res.status(400).send(error)
     }

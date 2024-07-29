@@ -1,27 +1,27 @@
 import { FilterQuery, ProjectionType, UpdateQuery } from "mongoose"
 import { IHomeImage } from "../../models/interfaces/homeImage.interface"
-import homeImage from "../models/homeImage.model"
+import homeImageModel from "../dbModels/homeImage.dbModel"
 
 
 async function create(admin: IHomeImage) {
-    return homeImage.create(admin)
+    return homeImageModel.create(admin)
 }
 
-function read(filter: FilterQuery<IHomeImage>) {
-    return homeImage.find({ ...filter, isActive: true })
+async function read(filter: FilterQuery<IHomeImage>) {
+    return homeImageModel.find({ ...filter, isActive: true })
 }
 
 async function readOne(filter: FilterQuery<IHomeImage>, projection?: ProjectionType<IHomeImage>) {
-    return homeImage.findOne({ ...filter, isActive: true }, projection)
+    return homeImageModel.findOne({ ...filter, isActive: true }, projection)
 }
 
-async function update(id: string, date: UpdateQuery<IHomeImage>) {
-    return homeImage.findByIdAndUpdate(id, date, { new: true })
+async function update(id: string, data: UpdateQuery<IHomeImage>) {
+    return homeImageModel.findOneAndUpdate({ _id: id, isActive: true }, { ...data, updatedAt: new Date() }, { new: true })
 }
 
 async function del(id: string) {
     return update(id, { isActive: false })
-    // return homeImage.findByIdAndUpdate(id, { isActive: false }){}
+    // return homeImageDbModel.findByIdAndUpdate(id, { isActive: false }){}
 }
 
 

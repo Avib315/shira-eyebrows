@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import express from 'express';
 import { JWTAuth } from '../BL/middleware/JWT/JWT.mw';
+import itemLogic from '../BL/logic/item.logic';
 
 const router = express.Router()
 
@@ -9,7 +10,9 @@ const router = express.Router()
 // get item
 router.get('/', async (req: Request, res: Response) => {
     try {
-        res.status(200).send('Welcome')
+        const filter = req.query
+        const item = await itemLogic.getItem(filter)
+        res.status(200).send(item)
     } catch (error) {
         res.status(400).send(error)
     }
@@ -18,7 +21,9 @@ router.get('/', async (req: Request, res: Response) => {
 // get many items
 router.get('/many', async (req: Request, res: Response) => {
     try {
-        res.status(200).send('Welcome')
+        const filter = req.query
+        const items = await itemLogic.getManyItems(filter)
+        res.status(200).send(items)
     } catch (error) {
         res.status(400).send(error)
     }
@@ -27,7 +32,9 @@ router.get('/many', async (req: Request, res: Response) => {
 // create item
 router.post('/', JWTAuth, async (req: Request, res: Response) => {
     try {
-        res.status(200).send('Welcome')
+        const { data } = req.body
+        const newItem = await itemLogic.createItem(data);
+        res.status(200).send(newItem)
     } catch (error) {
         res.status(400).send(error)
     }
@@ -36,7 +43,10 @@ router.post('/', JWTAuth, async (req: Request, res: Response) => {
 // update item
 router.put('/', JWTAuth, async (req: Request, res: Response) => {
     try {
-        res.status(200).send('Welcome')
+        const { data } = req.body
+        const { _id } = req.query
+        const item = await itemLogic.updateItem(_id as string, data);
+        res.status(200).send(item)
     } catch (error) {
         res.status(400).send(error)
     }
@@ -45,7 +55,9 @@ router.put('/', JWTAuth, async (req: Request, res: Response) => {
 //delete item
 router.delete('/', JWTAuth, async (req: Request, res: Response) => {
     try {
-        res.status(200).send('Welcome')
+        const { _id } = req.query
+        const item = await itemLogic.deleteItem(_id as string);
+        res.status(200).send(item)
     } catch (error) {
         res.status(400).send(error)
     }

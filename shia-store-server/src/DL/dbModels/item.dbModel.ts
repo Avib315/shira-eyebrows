@@ -12,7 +12,7 @@ const itemSchema = new mongoose.Schema<IItem>({
     tag: { type: String, required: true },
     createAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
-    isActive: { type: Boolean, required: true },
+    isActive: { type: Boolean, default: true },
 })
 
 

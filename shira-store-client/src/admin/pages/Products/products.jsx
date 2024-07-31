@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { usePopUp } from '../../../functions/PopUpContext'
 import AdminProductEditor from '../../components/AdminProductEditor/adminProductEditor'
 import AdminPopUp from '../../components/AdminPopUp/adminPopUp'
+import thead from "./jsonData.json"
 export default function Products() {
   const [products, setProducts] = useState([])
   const { showPopUp, setPopValue, hidePopUp } = usePopUp()
@@ -17,15 +18,7 @@ export default function Products() {
   useEffect(() => {
     getProducts()
   }, [])
-  const theadArray = [
-    { text: "שם" , type:"string" },
-    { text: "מזהה" , type:"string" },
-    { text: "שם באנגלית" , type:"string" },
-    { text: "תמונה ראשית", type:"img"  },
-    { text: "כמות", type:"string"  },
-    { text: "תגית" , type:"string" },
-    { text: "מחיר", type:"string"  }
-  ]
+
 
   function openProductEditor(action) {
     setProductEditor({ ...productEditor, action: action })
@@ -45,7 +38,7 @@ export default function Products() {
     <div className='Products'>
       <div className='mainContainer'>
         <div className="containerTable">
-          <AdminTable theadArray={theadArray} tbodyArray={products} trSelectedId={productEditor.productId} trFunction={selectProduct} />
+          <AdminTable thead={thead.thead} tbody={products} trSelectedId={productEditor.productId} trFunction={selectProduct} />
         </div>
         <div className='btnEditorContainer'>
           <button onClick={() => { openProductEditor("post") }} className='buttonEditor'>הוספת מוצר חדש</button>

@@ -1,9 +1,9 @@
 import Footer from '../../components/Footer/footer'
 import Header from '../../components/Header/header'
 import CoverPageComponent from '../../components/CoverPageComponent/coverPageComponent'
-import { usePopUp } from '../../functions/PopUpContext'
+import usePopUpStore  from '../../functions/usePopUpStore'
 export default function Page({ children }) {
-    const { popUpData } = usePopUp();
+    const { popUpData } = usePopUpStore();
     return (
         <>
             <Header />

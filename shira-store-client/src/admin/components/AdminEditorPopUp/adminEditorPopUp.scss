@@ -1,0 +1,118 @@
+.AdminEditorPopUp {
+    width: 90%;
+    height: 90vh;
+    position: absolute;
+    top: 5vh;
+    left: 3%;
+    background: #fff;
+    border-radius: 16px;
+    max-width: 600px;
+    box-shadow: 0 0 8px 0 #000;
+    animation: slideFromLeft .4s ease 0s 1 alternate forwards;
+    padding: .2rem;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        padding: 1rem;
+        font-size: var(--xxl-f);
+    }
+    
+    form {
+        width: 100%;
+        height: 84%;
+        padding: .4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .containerInput {
+        overflow: auto;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: baseline;
+        align-content: flex-start;
+        gap: 5px;
+        input{
+            border: 2px solid #333;
+            padding: .2rem .4rem;
+            border-radius: 10px;
+            width: 200px;
+            margin: 8px;
+            height: 40px;
+            font-size: var(--m-f);
+            &:focus{
+                outline: none;
+                border-color:  var(--pink);
+            }
+        }
+        .textareaContainer{
+            display: grid;
+            place-items: center;
+            width: 100%;
+            height: 120px;
+        }
+        input[type=number]{
+            width: 100px;
+        }
+    }
+
+    .btnContainer {
+        padding: 1rem;
+        width: 100%;
+        display: grid;
+        place-items: center;
+
+        button {
+            font-size: var(--l-f);
+            padding: .4rem 1.4rem;
+        }
+    }
+
+
+    button {
+        background: var(--black);
+        color: #fff;
+        border: none;
+        border-radius: 14px;
+        padding: .6rem;
+        font-size: var(--l-f);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            color: var(--pink);
+        }
+
+        &.xBtn {
+            position: absolute;
+            top: 2%;
+            left: 2%;
+        }
+    }
+
+    @media (width < 600px) {
+        width: 98%;
+        left: 1%;
+        height: 90%;
+        top: 10%;
+
+        h1 {
+            font-size: var(--xl-f);
+        }
+    }
+}
+
+@keyframes slideFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

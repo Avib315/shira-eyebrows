@@ -1,13 +1,13 @@
-import { NavLink, useNavigate } from 'react-router-dom';
-import { usePopUp } from '../../functions/PopUpContext';
+import {  useNavigate } from 'react-router-dom';
+import usePopUpStore  from '../../functions/usePopUpStore';
 import './cart.scss';
 import { IoMdClose } from "react-icons/io";
-import { useCart } from '../../functions/CartContext';
+import useCartStore from '../../functions/useCartStore';
 import { FaTrash } from "react-icons/fa";
 
 export default function Cart() {
-  const { cartData, setCartData } = useCart();
-  const { hidePopUp } = usePopUp();
+  const { cartData, setCartData } = useCartStore();
+  const { hidePopUp } = usePopUpStore();
   const navigate = useNavigate();
   const handleChildClick = (event) => {
     event.stopPropagation();

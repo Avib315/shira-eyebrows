@@ -68,8 +68,18 @@
         overflow-x: auto;
         overflow-y: hidden;
     }
-    .imagesContainer , .textAreaContainer{
+    .imagesContainer , .textAreaContainer , .btnContainer{
+        display: grid;
+        place-items: center;
         padding: 1rem;
+    }
+    .addImageBtnPopUp{
+        padding:.4rem 1rem;
+        background-color: var(--black);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size:var(--m-f);
     }
 }
 
@@ -98,8 +108,12 @@
         width: 50%;
 
         .textAreaContainer{
-            width: 45%;
+            width: 55%;
             height: 60%;
+        }
+        .btnContainer{
+            width: 30%;
+            height: 50%;
         }
     }
 }
@@ -130,6 +144,10 @@
                 width: 100%;
                 height: 50vh;
                 max-height: 400px;
+            }
+            .btnContainer{
+                width: 100%;
+                padding: 2rem;
             }
         }
     }

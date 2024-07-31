@@ -3,8 +3,6 @@ import React from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage/homePage';
-import { PopUpProvider } from './functions/PopUpContext'
-import { CartProvider } from './functions/CartContext'
 import ItemPage from './pages/ItemPage/itemPage';
 import CheckoutPage from './pages/CheckoutPage/checkoutPage';
 import NotFound from './pages/NotFound/notFound';
@@ -18,8 +16,6 @@ import Dashboard from './admin/pages/Dashboard/dashboard';
 function App() {
   return (
     <div className='App'>
-      <PopUpProvider>
-        <CartProvider>
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/shop' element={<ShopPage />} />
@@ -33,8 +29,6 @@ function App() {
             </Route>
             <Route path='/*' element={<NotFound />} />
           </Routes>
-        </CartProvider>
-      </PopUpProvider>
     </div>
   );
 }

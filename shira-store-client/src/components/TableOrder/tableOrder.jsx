@@ -1,9 +1,9 @@
 import './tableOrder.scss'
 import { sendItems } from "../../functions/items"
 import { useEffect, useState } from 'react'
-import { useCart } from '../../functions/CartContext';
+import useCartStore  from '../../functions/useCartStore';
 export default function TableOrder() {
-    const { cartData } = useCart();
+    const { cartData } = useCartStore();
     const [items, setItems] = useState([])
     const [openOrder, setOpenOrder] = useState(true)
     console.log(cartData)
@@ -37,28 +37,5 @@ export default function TableOrder() {
                 
                 </div>
         </div>
-
-        // <table className='TableOrder'>
-        //     <thead>
-        //         <tr>
-        //             <th>מ"ס:</th>
-        //             <th>תיאור:</th>
-        //             <th>מוצר:</th>
-        //             <th>כמות:</th>
-        //             <th>מחיר:</th>
-        //         </tr>
-        //     </thead>
-        //     <tbody>
-        //         {items.map((item,i) => (
-        //             <tr key={item.id}>
-        //                 <td>{i + 1}</td>
-        //                 <td><img src={item.images[0].src} alt={item.images[0].alt} /> </td>
-        //                 <td>{item.name}</td>
-        //                 <td>{item.inStock}</td>
-        //                 <td>{item.price}₪ </td>
-        //             </tr>
-        //         ))}
-        //     </tbody>
-        // </table>
     )
 }

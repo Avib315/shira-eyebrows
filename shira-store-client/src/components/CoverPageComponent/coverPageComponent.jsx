@@ -1,8 +1,8 @@
 import React from 'react';
 import './coverPageComponent.scss'
-import { usePopUp } from '../../functions/PopUpContext';
+import usePopUpStore  from '../../functions/usePopUpStore';
 const CoverPageComponent = ({ Component , closeByClick  }) => {
-  const {hidePopUp } = usePopUp();
+  const {hidePopUp } = usePopUpStore();
   const closePopUp = ()=>{
     if(closeByClick){
       hidePopUp();

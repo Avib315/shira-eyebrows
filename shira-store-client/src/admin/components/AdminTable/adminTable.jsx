@@ -1,33 +1,40 @@
 import './adminTable.scss';
-
-export default function AdminTable({ theadArray = [], tbodyArray = [], trFunction, trSelectedId }) {
-  function TrDisplay({ tdArray }) {
-    const tdValues = Object.values(tdArray);
-    return (
-      <>
-        {tdValues.map((td, i) => (
-          <td key={`td--${i}`}>  {theadArray[i].type === "img" ? <img src={td} /> : td}</td>
-        ))}
-      </>
-    );
-  }
+import TdGeneric from './TdGeneric/tdGeneric';
+import { MdEdit } from "react-icons/md";
+import { IoMdTrash } from "react-icons/io";
+export default function AdminTable({ thead = [], tbody = [], trFunction, trSelectedId }) {
 
   return (
-    <table className='AdminTable'>
-      <thead>
-        <tr>
-          {theadArray.map((th, i) => (
-            <th key={`th--${i}`}>{th.text}</th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {tbodyArray.map((td, i) => (
-          <tr className={trSelectedId == td._id ? "selected" : "notSelected"} key={`tr--${i}`} onClick={() => { trFunction & trFunction(td._id) }}>
-            <TrDisplay tdArray={td} />
+
+    <div className='AdminTable'>
+
+      <table >
+        <thead>
+          <tr>
+            {thead.map((th, i) => (
+              <th key={"th" + i}>
+                {th.name}
+
+              </th>
+            ))}
+            <th></th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {tbody.map((row, i) => {
+            return (
+              <tr key={"tr" + i}>
+                {thead.map((column, j) => (
+                  <td key={"td" + j}>
+                    <TdGeneric type={thead[j].type} value={row[column.key]} />
+                  </td>
+                ))}
+                <td className='iconsTd' ><button><MdEdit /> </button> <button><IoMdTrash /> </button></td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 }

@@ -1,3 +1,4 @@
+import AdminInput from '../AdminInput/adminInput';
 import AdminInputFile from '../AdminInputFile/adminInputFile';
 import AdminTextArea from '../AdminTextArea/adminTextArea';
 
@@ -11,6 +12,6 @@ function InputType({ type, props , defaultValue}) {
     case "file":
       return <AdminInputFile />
     default:
-      return <input type={type} defaultValue={defaultValue} {...props} />
+      return <AdminInput type={type} defaultValue={defaultValue} {...props}/>
   }
 }

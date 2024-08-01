@@ -53,20 +53,24 @@ header.Header {
         font-size: 1.6rem;
         justify-content: end;
         width: 3.5em;
-        background: none;
+        background: none; 
         border: none;
         position: relative;
 
         span {
+            background-color: var(--pink);
+            color: #fff;
+            border: 1px solid var(--pink);
             display: flex;
             justify-content: center;
             align-items: center;
-            // position: absolute;
-            width: 1.4rem;
-            height: 1.4rem;
-            // background-color: #fff;
+            position: absolute;
+            width: 1.2rem;
+            height: 1.2rem;
             border-radius: 50%;
-            font-size: .9rem;
+            top: -12%;
+            right: 50%;
+            font-size: var(--xxs-f);
         }
     }
 

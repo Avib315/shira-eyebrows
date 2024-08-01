@@ -2,52 +2,82 @@ import './products.scss'
 import AdminTable from "../../components/AdminTable/adminTable"
 import { sendProdects } from './prodectArray'
 import { useEffect, useState } from 'react'
-import { usePopUp } from '../../../functions/PopUpContext'
-import AdminProductEditor from '../../components/AdminProductEditor/adminProductEditor'
 import AdminPopUp from '../../components/AdminPopUp/adminPopUp'
 import thead from "./jsonData.json"
+import usePopUpEditor from '../../store/OpenPopUpEditor'
+import formTemplate from "./formTemplate.json"
+import usePopUpStore from '../../../functions/usePopUpStore'
 export default function Products() {
-  const [products, setProducts] = useState([])
-  const { showPopUp, setPopValue, hidePopUp } = usePopUp()
-  const [productEditor, setProductEditor] = useState({ action: "", productId: "" })
-  const getProducts = async function () {
-    const res = await sendProdects()
-    setProducts(res)
-    console.log(products)
-  }
-  useEffect(() => {
-    getProducts()
-  }, [])
+  const [products, setProducts] = useState([]);
+  const { showPopUp, setPopValue, hidePopUp } = usePopUpStore();
+  const { openEditor } = usePopUpEditor();
 
-
-  function openProductEditor(action) {
-    setProductEditor({ ...productEditor, action: action })
-  }
-  function popUpDelete() {
-    const popUpDelete = () => {
-      return <AdminPopUp title={"המוצר ימחק לצמיתות האם להמשיך?"} primeBtn={{ text: "מחק", func: () => { } }} subBtn={{ text: "ביטול", func: hidePopUp }} />
+  // Fetch products
+  const getProducts = async () => {
+    try {
+      const res = await sendProdects();
+      setProducts(res);
+    } catch (error) {
+      console.error('Error fetching products:', error);
     }
-    setPopValue(popUpDelete)
-    showPopUp(false)
-  }
-  function selectProduct(id) {
+  };
 
-    setProductEditor({ ...productEditor, productId: productEditor.productId == id ? "" : id })
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  // Delete pop-up setup
+  function popUpDelete({ id }) {
+    const openPopUpDelete = () => (
+      <AdminPopUp 
+        title={"המוצר ימחק לצמיתות האם להמשיך?"} 
+        primeBtn={{ text: "מחק", func: () => handleDelete(id) }} 
+        subBtn={{ text: "ביטול", func: hidePopUp }} 
+      />
+    );
+
+    setPopValue(openPopUpDelete);
+    showPopUp(false);
   }
+
+  // Handle delete action (ensure you define handleDelete)
+  const handleDelete = (id) => {
+    console.log('Deleting product with id:', id);
+    // Implement actual delete functionality here
+    hidePopUp();
+  };
+
+  // Editor pop-up (uncomment and implement if needed)
+  function popUpEditor(title, formArray = []) {
+    // Example implementation
+    openEditor(title, formArray);
+  }
+
+  // Get default value for form fields
+  function getDefaultValue(objSelected) {
+    console.log("_______________________________________");
+    console.log(formTemplate);
+    console.log(objSelected);
+    console.log("_______________________________________");
+
+    return formTemplate.map(e => ({
+      ...e,
+      defaultValue: objSelected[e.props?.name] || e.defaultValue // Assuming 'e.props.name' is the key
+    }));
+  }
+
   return (
     <div className='Products'>
       <div className='mainContainer'>
         <div className="containerTable">
-          <AdminTable thead={thead.thead} tbody={products} trSelectedId={productEditor.productId} trFunction={selectProduct} />
+          {/* <AdminTable thead={thead.thead} tbody={products} del ={popUpDelete} edit={ (obj) => { console.log("SDasdas"); popUpEditor("עריכת מוצר", ) }} /> */}
+          <AdminTable thead={thead.thead} tbody={products} del ={popUpDelete} edit={ (obj) => { popUpEditor("עריכת מוצר", getDefaultValue(obj) ) }} />
         </div>
         <div className='btnEditorContainer'>
-          <button onClick={() => { openProductEditor("post") }} className='buttonEditor'>הוספת מוצר חדש</button>
-          <button onClick={() => { openProductEditor("put") }} disabled={productEditor.productId == ""} className='buttonEditor'>  עריכת מוצר</button>
-          <button onClick={popUpDelete} disabled={productEditor.productId == ""} className='buttonEditor'>מחיקת מוצר</button>
+          <button onClick={() => { popUpEditor("הוספת מוצר", formTemplate) }} className='buttonEditor'>הוספת מוצר חדש</button>
         </div>
       </div>
-      {productEditor.action == "put" && productEditor.productId != "" && <div className="productEditorContainer"><AdminProductEditor productId={productEditor.productId} action={productEditor.action} /></div>}
-      {productEditor.action == "post" && <div className="productEditorContainer"><AdminProductEditor productId={productEditor.productId} action={productEditor.action} /></div>}
+
     </div>
   )
 }

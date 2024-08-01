@@ -5,11 +5,11 @@ import { MdOutlineClose } from "react-icons/md";
 import { NavLink } from 'react-router-dom';
 import { FaBars } from "react-icons/fa";
 import { useState } from 'react';
+import useCartStore  from '../../functions/useCartStore';
 
-import { useCart } from '../../functions/CartContext';
 export default function Header({ }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { openCart , cartData} = useCart();
+  const { openCart , cartData} = useCartStore();
 
   function openCartMenu() {
     openCart()
@@ -30,7 +30,7 @@ export default function Header({ }) {
       </div>
       <h1>Shira<img src={logo} alt="logo" />Eyebrows</h1>
       <div className='btnContainer2'>
-        <button className={"toCartIcon"} onClick={openCartMenu}><IoBagHandleSharp />  <span>({cartData?.items?.length})</span></button>
+        <button className={"toCartIcon"} onClick={openCartMenu}><IoBagHandleSharp />  <span>{cartData?.items?.length}</span></button>
       </div>
 
     </header>

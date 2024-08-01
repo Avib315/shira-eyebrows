@@ -1,0 +1,57 @@
+[
+    {
+        "type": "text",
+        "props": {
+            "name": "name",
+            "required": true,
+            "placeholder": "שם מוצר"
+        },
+        "defaultValue":""
+    },
+    {
+        "type": "number",
+        "props": {
+            "name": "quantity",
+            "required": true,
+            "placeholder": "כמות"
+        },
+        "defaultValue":""
+    },
+    {
+        "type": "number",
+        "props": {
+            "required": true,
+            "name": "quantity",
+            "placeholder": "מחיר"
+        },
+        "defaultValue":""
+    },
+    {
+        "type": "textarea",
+        "props": {
+            "required": true,
+            "name": "description",
+            "placeholder": "תיאור"
+        },
+        "defaultValue":""
+    },
+    {
+        "type": "textarea",
+        "props": {
+            "required": true,
+            "name": "usageDescription",
+            "placeholder": "הוראות שימוש"
+        },
+        "defaultValue":""
+    },
+    {
+        "type": "text",
+        "props": {
+            "required": true,
+            "name": "tag",
+            "placeholder": "תג"
+            
+        },
+        "defaultValue":""
+    }
+]

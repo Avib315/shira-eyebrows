@@ -21,12 +21,12 @@ const useAxiosReq = ({ defaultValue: defaultValue, method, url, body, dependency
     useEffect(() => { fetchData() }, dependency)
     return { data: [data, setData], loading: [loading, setLoading], error }
 }
-const axiosReq = async ({ method = "POST", body, url }) => {
+const axiosReq = async ({ method = "POST", body, url , withCredentials=false }) => {
     try {
 
         const { data: result } = await axios({
-            baseURL: "https://morti-server.onrender.com",
-            withCredentials: true,
+            baseURL: "http:://localhost:3220/api/",
+            withCredentials,
             method,
             data: body,
             url

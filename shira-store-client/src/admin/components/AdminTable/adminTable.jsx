@@ -2,7 +2,7 @@ import './adminTable.scss';
 import TdGeneric from './TdGeneric/tdGeneric';
 import { MdEdit } from "react-icons/md";
 import { IoMdTrash } from "react-icons/io";
-export default function AdminTable({ thead = [], tbody = [], trFunction, trSelectedId }) {
+export default function AdminTable({ thead = [], tbody = [], edit , del}) {
 
   return (
 
@@ -29,7 +29,10 @@ export default function AdminTable({ thead = [], tbody = [], trFunction, trSelec
                     <TdGeneric type={thead[j].type} value={row[column.key]} />
                   </td>
                 ))}
-                <td className='iconsTd' ><button><MdEdit /> </button> <button><IoMdTrash /> </button></td>
+                <td className='iconsTd' >
+                  <button onClick={() => {edit(row)}}><MdEdit /> </button>
+                  <button onClick={() => {del(row) }}><IoMdTrash /> </button>
+                  </td>
               </tr>
             )
           })}

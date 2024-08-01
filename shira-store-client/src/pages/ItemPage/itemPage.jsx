@@ -4,12 +4,12 @@ import './itemPage.scss'
 import Accordion from '../../components/Accordion/accordion'
 import { sendItems } from "../../functions/items.js"
 import Loading from '../../components/Loading/loading.jsx'
-import { useCart } from '../../functions/CartContext.jsx'
+import useCartStore  from '../../functions/useCartStore'
 import { NavLink, useParams } from 'react-router-dom'
 import Page from '../Page/Page.jsx'
 export default function ItemPage() {
     const [item, setItem] = useState({})
-    const { cartData, setCartData, openCart } = useCart();
+    const { cartData, setCartData, openCart } = useCartStore();
     let { itemId } = useParams();
     const getItem = async function () {
         const res = await sendItems(itemId)

@@ -1,10 +1,10 @@
 import AdminHeader from '../../components/AdminHeader/adminHeader'
 import './admin.scss'
 import logo from '../../../assets/logo.svg'
-import { usePopUp } from '../../../functions/PopUpContext'
+import usePopUpStore  from '../../../functions/usePopUpStore'
 import CoverPageComponent from '../../../components/CoverPageComponent/coverPageComponent'
 export default function Admin({ children }) {
-  const { popUpData } = usePopUp()
+  const { popUpData } = usePopUpStore()
   return (
     <div className='Admin'>
       <AdminHeader />

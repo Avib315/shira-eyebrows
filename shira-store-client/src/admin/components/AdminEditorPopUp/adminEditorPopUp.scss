@@ -36,19 +36,7 @@
         align-items: baseline;
         align-content: flex-start;
         gap: 5px;
-        input{
-            border: 2px solid #333;
-            padding: .2rem .4rem;
-            border-radius: 10px;
-            width: 200px;
-            margin: 8px;
-            height: 40px;
-            font-size: var(--m-f);
-            &:focus{
-                outline: none;
-                border-color:  var(--pink);
-            }
-        }
+     
         .textareaContainer{
             display: grid;
             place-items: center;
@@ -73,7 +61,7 @@
     }
 
 
-    button {
+    button.submitBtn ,  button.xBtn{
         background: var(--black);
         color: #fff;
         border: none;
@@ -88,11 +76,11 @@
             color: var(--pink);
         }
 
-        &.xBtn {
-            position: absolute;
-            top: 2%;
-            left: 2%;
-        }
+    }
+    button.xBtn {
+        position: absolute;
+        top: 2%;
+        left: 2%;
     }
 
     @media (width < 600px) {

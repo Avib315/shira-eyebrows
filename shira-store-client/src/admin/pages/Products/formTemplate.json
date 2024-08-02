@@ -53,5 +53,15 @@
             
         },
         "defaultValue":""
+    },
+    {
+        "type": "img",
+        "props": {
+            "required": true,
+            "name": "img",
+            "placeholder": "תג"
+            
+        },
+        "defaultValue":[]
     }
 ]

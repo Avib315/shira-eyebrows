@@ -30,8 +30,11 @@ router.get('/many', async (req: Request, res: Response) => {
 })
 
 // create item
-router.post('/', JWTAuth, async (req: Request, res: Response) => {
+router.post('/', 
+    // JWTAuth,
+     async (req: Request, res: Response) => {
     try {
+        console.log(req.body)
         const { data } = req.body
         const newItem = await itemLogic.createItem(data);
         res.status(200).send(newItem)

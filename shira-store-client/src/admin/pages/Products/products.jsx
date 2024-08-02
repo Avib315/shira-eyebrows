@@ -7,12 +7,13 @@ import thead from "./jsonData.json"
 import usePopUpEditor from '../../store/OpenPopUpEditor'
 import formTemplate from "./formTemplate.json"
 import usePopUpStore from '../../../functions/usePopUpStore'
+import useApiStore from "./useApiStore"
 export default function Products() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState();
+  const {get, post, put, del, data } = useApiStore()
   const { showPopUp, setPopValue, hidePopUp } = usePopUpStore();
   const { openEditor } = usePopUpEditor();
 
-  // Fetch products
   const getProducts = async () => {
     try {
       const res = await sendProdects();
@@ -26,13 +27,13 @@ export default function Products() {
     getProducts();
   }, []);
 
-  // Delete pop-up setup
+
   function popUpDelete({ id }) {
     const openPopUpDelete = () => (
-      <AdminPopUp 
-        title={"המוצר ימחק לצמיתות האם להמשיך?"} 
-        primeBtn={{ text: "מחק", func: () => handleDelete(id) }} 
-        subBtn={{ text: "ביטול", func: hidePopUp }} 
+      <AdminPopUp
+        title={"המוצר ימחק לצמיתות האם להמשיך?"}
+        primeBtn={{ text: "מחק", func: () => handleDelete(id) }}
+        subBtn={{ text: "ביטול", func: hidePopUp }}
       />
     );
 
@@ -40,25 +41,16 @@ export default function Products() {
     showPopUp(false);
   }
 
-  // Handle delete action (ensure you define handleDelete)
   const handleDelete = (id) => {
     console.log('Deleting product with id:', id);
-    // Implement actual delete functionality here
     hidePopUp();
   };
 
-  // Editor pop-up (uncomment and implement if needed)
-  function popUpEditor(title, formArray = []) {
-    // Example implementation
-    openEditor(title, formArray);
+  function popUpEditor(title, formArray = [], submit = () => { }) {
+    openEditor(title, formArray, submit);
   }
 
-  // Get default value for form fields
   function getDefaultValue(objSelected) {
-    console.log("_______________________________________");
-    console.log(formTemplate);
-    console.log(objSelected);
-    console.log("_______________________________________");
 
     return formTemplate.map(e => ({
       ...e,
@@ -70,11 +62,10 @@ export default function Products() {
     <div className='Products'>
       <div className='mainContainer'>
         <div className="containerTable">
-          {/* <AdminTable thead={thead.thead} tbody={products} del ={popUpDelete} edit={ (obj) => { console.log("SDasdas"); popUpEditor("עריכת מוצר", ) }} /> */}
-          <AdminTable thead={thead.thead} tbody={products} del ={popUpDelete} edit={ (obj) => { popUpEditor("עריכת מוצר", getDefaultValue(obj) ) }} />
+          <AdminTable thead={thead.thead} tbody={products} del={popUpDelete} edit={(obj) => { popUpEditor("עריכת מוצר", getDefaultValue(obj)) }} />
         </div>
         <div className='btnEditorContainer'>
-          <button onClick={() => { popUpEditor("הוספת מוצר", formTemplate) }} className='buttonEditor'>הוספת מוצר חדש</button>
+          <button onClick={() => { popUpEditor("הוספת מוצר", formTemplate, post) }} className='buttonEditor'>הוספת מוצר חדש</button>
         </div>
       </div>
 

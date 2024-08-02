@@ -10,7 +10,7 @@ export default function TdGeneric({ type, value }) {
             return <input type="checkbox" defaultChecked={value} />;
         case "img":
             return <>
-                <img src={value} className="imgInTd" onClick={toggleElement} />
+                <img src={value[0]} className="imgInTd" onClick={toggleElement} />
                 {showElement && <div className="popUp" onClick={toggleElement}><img className="popUpImg" src={value} /> </div>}
             </>;
         case "string":

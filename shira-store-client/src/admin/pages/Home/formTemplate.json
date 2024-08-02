@@ -1,0 +1,23 @@
+[
+    {
+        "type": "textarea",
+        "props": {
+            "required": true,
+            "name": "opening",
+            "placeholder": "תיאור"
+        },
+        "defaultValue":"ברוכים הבאים ל-Shira Eyebrows – קליניקה ואקדמיה המובילה בתחום עיצוב הגבות ומיקרובליידינג. אנו גאים להציע לכם את השירותים המקצועיים והטבעיים ביותר בתחום היופי. בקליניקה שלנו תוכלו ליהנות מטיפולי עיצוב גבות ברמה הגבוהה ביותר, תוך שימוש בטכניקות מתקדמות ומוצרים איכותיים. ובאתר שלנו תמצאו חנות אונליין למוצרי קוסמטיקה למקצועיות ולשימוש אישי."
+    },
+    {
+        "type": "img",
+        "props": {
+            "required": true,
+            "name": "img",
+            "placeholder": "תג"
+            
+        },
+        "defaultValue":["https://st3.depositphotos.com/1441511/14759/i/380/depositphotos_147593521-stock-photo-beautician-doing-permanent-eyebrows-makeup.jpg",
+        "//www.anastasiabeverlyhills.com/cdn/shop/files/ABH_TheStudio_Blog_052724_Lock-In-Your-Look_Export_02.jpg?v=1715898357&width=300 300w, //www.anastasiabeverlyhills.com/cdn/shop/files/ABH_TheStudio_Blog_052724_Lock-In-Your-Look_Export_02.jpg?v=1715898357&width=600 600w, //www.anastasiabeverlyhills.com/cdn/shop/files/ABH_TheStudio_Blog_052724_Lock-In-Your-Look_Export_02.jpg?v=1715898357&width=750 750w, //www.anastasiabeverlyhills.com/cdn/shop/files/ABH_TheStudio_Blog_052724_Lock-In-Your-Look_Export_02.jpg?v=1715898357&width=1024 1024w, //www.anastasiabeverlyhills.com/cdn/shop/files/ABH_TheStudio_Blog_052724_Lock-In-Your-Look_Export_02.jpg?v=1715898357&width=1280 1280w, //www.anastasiabeverlyhills.com/cdn/shop/files/ABH_TheStudio_Blog_052724_Lock-In-Your-Look_Export_02.jpg?v=1715898357&width=1440 1440w, //www.anastasiabeverlyhills.com/cdn/shop/files/ABH_TheStudio_Blog_052724_Lock-In-Your-Look_Export_02.jpg?v=1715898357&width=1920 1920w" , "https://img.freepik.com/premium-photo/makeup-brushes-cosmetics-grey-background_392895-147924.jpg" , "https://img.freepik.com/free-photo/portrait-young-beautiful-model-stand-smiling-camera-high-quality-photo_144627-75055.jpg?ga=GA1.1.1744414765.1655714439&semt=sph" ,"https://st.depositphotos.com/1053646/2276/i/380/depositphotos_22763114-stock-photo-abstract-green-eye.jpg" 
+      ]
+    }
+]

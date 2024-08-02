@@ -30,7 +30,7 @@ export default function AdminTable({ thead = [], tbody = [], edit , del}) {
                   </td>
                 ))}
                 <td className='iconsTd' >
-                  <button onClick={() => {edit(row)}}><MdEdit /> </button>
+                  <button onClick={() => {console.log(row);edit(row)}}><MdEdit /> </button>
                   <button onClick={() => {del(row) }}><IoMdTrash /> </button>
                   </td>
               </tr>

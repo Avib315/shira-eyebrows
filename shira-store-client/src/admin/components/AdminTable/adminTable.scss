@@ -20,6 +20,10 @@
                 text-align: right;
                 height: 60px;
             }
+            tr{
+                position: sticky;
+                top: 0;
+            }
         }
 
         thead,

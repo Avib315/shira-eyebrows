@@ -1,7 +1,7 @@
-import AdminFormCreator from '../AdminFormCreator/adminFormCreator';
 import './adminEditorPopUp.scss'
 import { IoMdClose } from "react-icons/io";
 import usePopUpStore from '../../../functions/usePopUpStore';
+import InputType from '../InputType/inputType';
 export default function AdminEditorPopUp({ title = "הוספת מוצר" ,formArray = [], submitHandler}) {
     const { hidePopUp } = usePopUpStore();
     const handleChildClick = (event) => {
@@ -9,7 +9,13 @@ export default function AdminEditorPopUp({ title = "הוספת מוצר" ,formAr
       };
       const handleSubmit = (event) => {
         event.preventDefault();
-        submitHandler();
+        const formData = new FormData(event.target)
+        let formValues = []
+        formData.forEach((value, key) => {
+            formValues[key] = value;
+        });
+        console.log(formValues)
+        submitHandler(formValues);
       }
     return (
         <div className='AdminEditorPopUp' onClick={handleChildClick}>
@@ -17,10 +23,10 @@ export default function AdminEditorPopUp({ title = "הוספת מוצר" ,formAr
             <h1>{title}</h1>
             <form onSubmit={handleSubmit}>
                 <div className='containerInput'>
-            <AdminFormCreator formArray={formArray}/>
+                {formArray.map((e , i) => <InputType key={"AED" + i} type={e.type} defaultValue={e.defaultValue} props={e.props} />)}
                 </div>
             <div className="btnContainer">
-            <button type='submit'>שמירה</button>
+            <button className='submitBtn' type='submit'>שמירה</button>
             </div>
             </form>
         </div>

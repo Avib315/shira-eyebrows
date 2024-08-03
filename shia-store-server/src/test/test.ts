@@ -1,6 +1,10 @@
-export function sendProdects(id) {
-
-    const products = [
+import { IItem } from '../models/interfaces/item.interface'; // Adjust the path as necessary
+import { connectDB } from '../DL/db';
+import itemController   from '../DL/controllers/item.controller'
+async function addingItems() {
+    const res = await connectDB()
+    console.log(res)
+    const items: IItem[] = [
         {
             name: "סרום לפנים",
             price: 120,
@@ -12,6 +16,8 @@ export function sendProdects(id) {
             usageDescription: "1. וודא שהגבות נקיות ויבשות לפני השימוש.\n2. מרח את הסרום בעזרת המברשת הקטנה.\n3. עצב את הגבות לצורה הרצויה בעזרת המברשת.\n4. תן למוצר להתייבש כמה שניות.",
             ingredients: [""],
             tag: "טיפוח פנים",
+            createAt: new Date(),
+            updatedAt: new Date(),
             isActive: true
         },
         {
@@ -25,6 +31,8 @@ export function sendProdects(id) {
             usageDescription: "1. וודא שהגבות נקיות ויבשות לפני השימוש.\n2. מרח את הסרום בעזרת המברשת הקטנה.\n3. עצב את הגבות לצורה הרצויה בעזרת המברשת.\n4. תן למוצר להתייבש כמה שניות.",
             ingredients: [""],
             tag: "טיפוח פנים",
+            createAt: new Date(),
+            updatedAt: new Date(),
             isActive: true
         },
         {
@@ -38,6 +46,8 @@ export function sendProdects(id) {
             usageDescription: "1. וודא שהגבות נקיות ויבשות לפני השימוש.\n2. מרח את הסרום בעזרת המברשת הקטנה.\n3. עצב את הגבות לצורה הרצויה בעזרת המברשת.\n4. תן למוצר להתייבש כמה שניות.",
             ingredients: [""],
             tag: "טיפוח גוף",
+            createAt: new Date(),
+            updatedAt: new Date(),
             isActive: true
         },
         {
@@ -51,6 +61,8 @@ export function sendProdects(id) {
             usageDescription: "1. וודא שהגבות נקיות ויבשות לפני השימוש.\n2. מרח את הסרום בעזרת המברשת הקטנה.\n3. עצב את הגבות לצורה הרצויה בעזרת המברשת.\n4. תן למוצר להתייבש כמה שניות.",
             ingredients: [""],
             tag: "טיפוח שיער",
+            createAt: new Date(),
+            updatedAt: new Date(),
             isActive: true
         },
         {
@@ -65,6 +77,8 @@ export function sendProdects(id) {
             usageDescription: "1. וודא שהגבות נקיות ויבשות לפני השימוש.\n2. מרח את הסרום בעזרת המברשת הקטנה.\n3. עצב את הגבות לצורה הרצויה בעזרת המברשת.\n4. תן למוצר להתייבש כמה שניות.",
             ingredients: [""],
             tag: "טיפוח פנים",
+            createAt: new Date(),
+            updatedAt: new Date(),
             isActive: true
         },
         {
@@ -78,13 +92,18 @@ export function sendProdects(id) {
             usageDescription: "1. וודא שהגבות נקיות ויבשות לפני השימוש.\n2. מרח את הסרום בעזרת המברשת הקטנה.\n3. עצב את הגבות לצורה הרצויה בעזרת המברשת.\n4. תן למוצר להתייבש כמה שניות.",
             ingredients: [""],
             tag: "טיפוח פנים",
+            createAt: new Date(),
+            updatedAt: new Date(),
             isActive: true
         }
     ];
-    
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(products);
-        }, 60);
-    });
+
+    try {
+        const results = await Promise.all(items.map(item => itemController.create(item)));
+        console.log('All items created:', results);
+    } catch (error) {
+        console.error('Error creating items:', error);
+    }
 }
+
+addingItems();

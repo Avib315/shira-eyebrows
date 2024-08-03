@@ -5,12 +5,13 @@ export const axiosReq = async ({ method = "POST", body, url, withCredentials = f
     try {
 
         const { data: result } = await axios({
-            baseURL: "http:://localhost:3220/api/",
+            baseURL: "http://localhost:3220/api/",
             withCredentials,
             method,
             data: body,
             url
         })
+        console.log(result)
         return result
     }
     catch (error) {

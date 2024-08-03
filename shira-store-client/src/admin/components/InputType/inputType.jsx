@@ -1,4 +1,4 @@
-import AdminInputFile from '../AdminInputFile/adminInputFile'
+import InputFile from '../InputFile/inputFile'
 import './inputType.scss'
 
 export default function InputType({ type, props, defaultValue }) {
@@ -6,7 +6,7 @@ export default function InputType({ type, props, defaultValue }) {
         case "textarea":
             return (<textarea className='textarea' defaultValue={defaultValue} placeholder={"כתוב כאן"}  {...props}></textarea>)
         case "img":
-            return <AdminInputFile type={type}  {...props} defaultValue={defaultValue} />
+            return <InputFile type={type}  {...props} defaultValue={defaultValue} />
         default:
             return <label className='input'>
                 <input type={type} defaultValue={defaultValue} {...props} />

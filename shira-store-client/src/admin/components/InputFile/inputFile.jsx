@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import './adminInputFile.scss';
+import './inputFile.scss';
 import { LuImagePlus } from "react-icons/lu";
 import { FaTrash } from 'react-icons/fa';
 
-export default function AdminInputFile({ name, defaultValue = [] }) {
+export default function InputFile({ name, defaultValue = [] }) {
     const [images, setImages] = useState(defaultValue);
 
     function loadImageHandler(e) {
@@ -17,7 +17,7 @@ export default function AdminInputFile({ name, defaultValue = [] }) {
     }
     
     return (
-        <div className='AdminInputFile'>
+        <div className='InputFile'>
             <label htmlFor={name}>
                 <div className='iconAnTitleContainer'>
                     <LuImagePlus /> <p>בחר תמונה</p>

@@ -1,8 +1,8 @@
-import './adminPopUp.scss'
+import './popUp.scss'
 
-export default function AdminPopUp({ title, primeBtn, subBtn }) {
+export default function PopUp({ title, primeBtn, subBtn }) {
   return (
-    <div className='AdminPopUp'>
+    <div className='PopUp'>
       <h2>{title}</h2>
       <div className="btnContainer">
         <button className='btn btnPrime' onClick={primeBtn.func}>{primeBtn.text}</button>

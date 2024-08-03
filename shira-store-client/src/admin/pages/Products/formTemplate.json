@@ -6,7 +6,7 @@
             "required": true,
             "placeholder": "שם מוצר"
         },
-        "defaultValue":""
+        "defaultValue": ""
     },
     {
         "type": "number",
@@ -15,7 +15,7 @@
             "required": true,
             "placeholder": "כמות"
         },
-        "defaultValue":""
+        "defaultValue": ""
     },
     {
         "type": "number",
@@ -24,7 +24,7 @@
             "name": "quantity",
             "placeholder": "מחיר"
         },
-        "defaultValue":""
+        "defaultValue": ""
     },
     {
         "type": "textarea",
@@ -33,7 +33,7 @@
             "name": "description",
             "placeholder": "תיאור"
         },
-        "defaultValue":""
+        "defaultValue": ""
     },
     {
         "type": "textarea",
@@ -42,7 +42,7 @@
             "name": "usageDescription",
             "placeholder": "הוראות שימוש"
         },
-        "defaultValue":""
+        "defaultValue": ""
     },
     {
         "type": "text",
@@ -50,9 +50,8 @@
             "required": true,
             "name": "tag",
             "placeholder": "תג"
-            
         },
-        "defaultValue":""
+        "defaultValue": ""
     },
     {
         "type": "img",
@@ -60,8 +59,16 @@
             "required": true,
             "name": "img",
             "placeholder": "תג"
-            
         },
-        "defaultValue":[]
+        "defaultValue": []
+    },
+    {
+        "type": "checkbox",
+        "props": {
+            "required": false,
+            "name": "isActive",
+            "placeholder": "פעיל"
+        },
+        "defaultValue": []
     }
 ]

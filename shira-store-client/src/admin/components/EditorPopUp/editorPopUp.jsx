@@ -1,8 +1,8 @@
-import './adminEditorPopUp.scss'
+import './editorPopUp.scss'
 import { IoMdClose } from "react-icons/io";
 import usePopUpStore from '../../../functions/usePopUpStore';
 import InputType from '../InputType/inputType';
-export default function AdminEditorPopUp({ title = "הוספת מוצר" ,formArray = [], submitHandler}) {
+export default function EditorPopUp({ title = "הוספת מוצר" ,formArray = [], submitHandler}) {
     const { hidePopUp } = usePopUpStore();
     const handleChildClick = (event) => {
         event.stopPropagation();
@@ -18,7 +18,7 @@ export default function AdminEditorPopUp({ title = "הוספת מוצר" ,formAr
         submitHandler(formValues);
       }
     return (
-        <div className='AdminEditorPopUp' onClick={handleChildClick}>
+        <div className='EditorPopUp' onClick={handleChildClick}>
             <button className='xBtn' onClick={hidePopUp}><IoMdClose/></button>
             <h1>{title}</h1>
             <form onSubmit={handleSubmit}>

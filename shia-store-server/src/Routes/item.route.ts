@@ -11,6 +11,7 @@ const router = express.Router()
 router.get('/', async (req: Request, res: Response) => {
     try {
         const filter = req.query
+        console.log(filter)
         const item = await itemLogic.getItem(filter)
         res.status(200).send(item)
     } catch (error) {

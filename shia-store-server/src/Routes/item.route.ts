@@ -36,9 +36,10 @@ router.post('/',
      async (req: Request, res: Response) => {
     try {
         console.log(req.body)
+        // console.log(req)
         const { data } = req.body
-        const newItem = await itemLogic.createItem(data);
-        res.status(200).send(newItem)
+        // const newItem = await itemLogic.createItem(data);
+        // res.status(200).send(newItem)
     } catch (error) {
         res.status(400).send(error)
     }

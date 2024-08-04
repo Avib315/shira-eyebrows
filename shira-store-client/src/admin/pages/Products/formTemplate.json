@@ -57,7 +57,7 @@
         "type": "img",
         "props": {
             "required": true,
-            "name": "img",
+            "name": "images",
             "placeholder": "תג"
         },
         "defaultValue": []

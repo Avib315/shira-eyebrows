@@ -4,9 +4,7 @@ import usePopUpStore from '../../../functions/usePopUpStore';
 import InputType from '../InputType/inputType';
 export default function EditorPopUp({ title = "הוספת מוצר" ,formArray = [], submitHandler}) {
     const { hidePopUp } = usePopUpStore();
-    const handleChildClick = (event) => {
-        event.stopPropagation();
-      };
+
       const handleSubmit = (event) => {
         event.preventDefault();
         const formData = new FormData(event.target)
@@ -14,11 +12,10 @@ export default function EditorPopUp({ title = "הוספת מוצר" ,formArray =
         formData.forEach((value, key) => {
             formValues[key] = value;
         });
-        console.log(formValues)
         submitHandler(formValues);
       }
     return (
-        <div className='EditorPopUp' onClick={handleChildClick}>
+        <div className='EditorPopUp'>
             <button className='xBtn' onClick={hidePopUp}><IoMdClose/></button>
             <h1>{title}</h1>
             <form onSubmit={handleSubmit}>

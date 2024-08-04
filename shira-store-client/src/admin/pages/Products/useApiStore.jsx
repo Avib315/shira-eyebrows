@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { useAxiosReq } from "../../../functions/webApi";
 import { axiosReq } from '../../store/useApiReq';
 
 const url = "/item";
@@ -13,7 +12,9 @@ const useApiStore = create((set) => ({
     },
     post: async (body) => {
         console.log("__POST__");
-        const response = await axiosReq({ method: "POST", url, body: body });
+        console.log(body); 
+        console.log("___________PPPPPPPPPPPP_________________");
+        const response = await axiosReq({ method: "POST", url, body });
         console.log(response)
         set((state) => ({ data: [...state.data, response] }));
         return response;

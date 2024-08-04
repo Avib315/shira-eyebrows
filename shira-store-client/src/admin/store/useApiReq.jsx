@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 
 export const axiosReq = async ({ method = "POST", body, url, withCredentials = false }) => {
     try {
-
         const { data: result } = await axios({
             baseURL: "http://localhost:3220/api/",
             withCredentials,

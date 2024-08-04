@@ -1,33 +1,33 @@
-import { NavLink, useNavigate } from 'react-router-dom'
-import './adminHeader.scss'
-import { MdDashboard, MdOutlineClose, MdOutlineShoppingCart } from "react-icons/md";
-import { BsCartPlusFill } from "react-icons/bs";
+import './header.scss'
 import logo from '../../../assets/logo.svg'
+import { useNavigate } from 'react-router-dom'
+import { MdDashboard, MdOutlineClose } from "react-icons/md";
+import { BsCartPlusFill } from "react-icons/bs";
 import { IoHome } from "react-icons/io5";
 import { FaBars, FaClipboard } from 'react-icons/fa';
 import { useState } from 'react';
 import { CiLogout } from "react-icons/ci";
 import { UseUserInfo } from '../../store/UseUserInfo';
 
-export default function AdminHeader() {
+export default function Header() {
   const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false);
-  const logout = UseUserInfo(state=> state.logout)
+  const logout = UseUserInfo(state => state.logout)
   const navList = [
     { link: "/", text: "מסך הבית", icon: <IoHome /> },
-    { link: "/dashboard", text: "דשבורד", icon: <MdDashboard  /> },
+    { link: "/dashboard", text: "דשבורד", icon: <MdDashboard /> },
     { link: "/products", text: "מוצרים", icon: <BsCartPlusFill /> },
     { link: "/orders", text: "הזמנות", icon: <FaClipboard /> }
   ]
   const setNavigate = (to) => {
     setMenuOpen(false)
-    navigate("/admin"+to)
+    navigate("/admin" + to)
   }
   function logOutClickHandler() {
     logout()
   }
   return (
-    <header className='AdminHeader'>
+    <header className='header'>
       <div className='logo'>
         <h1>Shira<img src={logo} alt="logo" />Eyebrows</h1>
       </div>

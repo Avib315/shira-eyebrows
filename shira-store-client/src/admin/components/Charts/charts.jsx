@@ -2,14 +2,14 @@
 
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer ,LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import './adminCharts.scss';
+import './charts.scss';
 import data from "./data.json"
 
 
-export default function AdminCharts() {
+export default function Charts() {
 
   return (<>
-    <div className='AdminCharts'>
+    <div className='Charts'>
     <DataPieChart/>
     <Example/>
     </div >

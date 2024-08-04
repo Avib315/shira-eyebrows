@@ -1,9 +1,9 @@
-import Button from '../../../components/Button/button';
 import { Input } from '../../../components/Input/input';
 import './login.scss'
 import logo from "../../../assets/logo.svg"
 import { UseUserInfo } from '../../store/UseUserInfo';
 import { NavLink } from 'react-router-dom';
+import Button from '../../../components/Button/button';
 export default function Login() {
     const setUser = UseUserInfo(state => state.setUser)
     function submitHandler(e) {

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": " nodemon --watch src/**/*.ts --exec ts-node src/server.ts ",
     "build": "rimraf dist && npx tsc ",
+    "test": "npm run build && node dist/test/test.js",
     "prestart": "npm run build",
     "start": " node dist/server.js",
     "preserve": "npm run build",

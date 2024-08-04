@@ -1,12 +1,12 @@
-import './adminTable.scss';
+import './table.scss';
 import TdGeneric from './TdGeneric/tdGeneric';
 import { MdEdit } from "react-icons/md";
 import { IoMdTrash } from "react-icons/io";
-export default function AdminTable({ thead = [], tbody = [], edit , del}) {
+export default function Table({ thead = [], tbody = [], edit , del}) {
 
   return (
 
-    <div className='AdminTable'>
+    <div className='Table'>
 
       <table >
         <thead>

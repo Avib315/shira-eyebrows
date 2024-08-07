@@ -7,6 +7,7 @@ import { connectDB } from './DL/db';
 import itemRoute from './Routes/item.route'
 import homeImageRoute from './Routes/homeImage.route'
 import adminRoute from './Routes/admin.route'
+import orderRoute from './Routes/order.route'
 import cloudinaryService from './BL/cloudinary/cloudinaryService'
 
 
@@ -26,6 +27,7 @@ app.use(express.json({ limit: '50mb' }));
 app.use('/api/item', itemRoute)
 app.use('/api/homeImage', homeImageRoute)
 app.use('/api/admin', adminRoute)
+app.use('/api/order', orderRoute)
 
 
 

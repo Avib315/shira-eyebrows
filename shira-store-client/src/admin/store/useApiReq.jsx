@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-const baseURL = import.meta.env.VITE_SERVER_URL;
+const baseURL = import.meta.env.VITE_API;
 export const axiosReq = async ({ method = "POST", body, url, withCredentials = false }) => {
     try {
         const { data: result } = await axios({

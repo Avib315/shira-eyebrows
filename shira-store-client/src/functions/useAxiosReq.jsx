@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-const baseURL = import.meta.env.VITE_SERVER_URL;
+const baseURL = import.meta.env.VITE_API;
 const useAxiosReq = ({ defaultValue = null, method, url, body, dependency = [] }) => {
     const [data, setData] = useState(defaultValue);
     const [loading, setLoading] = useState(false);
@@ -24,9 +24,9 @@ const useAxiosReq = ({ defaultValue = null, method, url, body, dependency = [] }
 }
 const axiosReq = async ({ method = "POST", body, url, withCredentials = false }) => {
     try {
-
+    console.warn("AXIOS Request:" , baseURL , url);
         const { data: result } = await axios({
-            baseURL: baseURL,
+            baseURL: baseURL ,
             withCredentials,
             method,
             data: body,

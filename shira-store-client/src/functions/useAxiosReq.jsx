@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-const baseURL = import.meta.env.VITE_API;
+const baseURL = import.meta.env.VITE_API; 
+
 const useAxiosReq = ({ defaultValue = null, method, url, body, dependency = [] }) => {
     const [data, setData] = useState(defaultValue);
     const [loading, setLoading] = useState(false);

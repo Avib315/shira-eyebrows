@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+const baseURL = import.meta.env.VITE_SERVER_URL;
 const useAxiosReq = ({ defaultValue = null, method, url, body, dependency = [] }) => {
     const [data, setData] = useState(defaultValue);
     const [loading, setLoading] = useState(false);
@@ -26,7 +26,7 @@ const axiosReq = async ({ method = "POST", body, url, withCredentials = false })
     try {
 
         const { data: result } = await axios({
-            baseURL: "http://localhost:3220/api/",
+            baseURL: baseURL,
             withCredentials,
             method,
             data: body,

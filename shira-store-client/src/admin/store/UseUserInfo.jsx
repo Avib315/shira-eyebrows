@@ -5,7 +5,6 @@ export const UseUserInfo = create((set, get) => ({
     user: true,
     loading: false,
     setUser: (user) => {
-        console.log({ user });
         // TODO - login user with server
         set({ user })
     },

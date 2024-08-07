@@ -18,7 +18,8 @@ async function addingItems() {
             tag: "טיפוח פנים",
             createAt: new Date(),
             updatedAt: new Date(),
-            isActive: true
+            isActive: true,
+            mkt:"1001"
         },
         {
             name: "קרם לחות",
@@ -33,7 +34,8 @@ async function addingItems() {
             tag: "טיפוח פנים",
             createAt: new Date(),
             updatedAt: new Date(),
-            isActive: true
+            isActive: true,
+            mkt:"1002"
         },
         {
             name: "שמן גוף",
@@ -48,7 +50,8 @@ async function addingItems() {
             tag: "טיפוח גוף",
             createAt: new Date(),
             updatedAt: new Date(),
-            isActive: true
+            isActive: true,
+            mkt:"1003"
         },
         {
             name: "מסכת שיער",
@@ -63,7 +66,8 @@ async function addingItems() {
             tag: "טיפוח שיער",
             createAt: new Date(),
             updatedAt: new Date(),
-            isActive: true
+            isActive: true,
+            mkt:"1004"
         },
         {
             name: "מי פנים",
@@ -79,7 +83,8 @@ async function addingItems() {
             tag: "טיפוח פנים",
             createAt: new Date(),
             updatedAt: new Date(),
-            isActive: true
+            isActive: true,
+            mkt:"1005"
         },
         {
             name: "קרם עיניים",
@@ -94,7 +99,8 @@ async function addingItems() {
             tag: "טיפוח פנים",
             createAt: new Date(),
             updatedAt: new Date(),
-            isActive: true
+            isActive: true,
+            mkt:"1006"
         }
     ];
 

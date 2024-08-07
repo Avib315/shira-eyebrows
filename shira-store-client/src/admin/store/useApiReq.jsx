@@ -10,7 +10,6 @@ export const axiosReq = async ({ method = "POST", body, url, withCredentials = f
             data: body,
             url
         })
-        console.log(result)
         return result
     }
     catch (error) {
@@ -19,7 +18,7 @@ export const axiosReq = async ({ method = "POST", body, url, withCredentials = f
     }
 
 }
-const useAxiosReq = ({ defaultValue = null, method, url, body, dependency = [] }) => {
+export const useAxiosReq = ({ defaultValue = null, method, url, body, dependency = [] }) => {
     const [data, setData] = useState(defaultValue);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
@@ -27,7 +26,6 @@ const useAxiosReq = ({ defaultValue = null, method, url, body, dependency = [] }
         setLoading(true);
         try {
             const result = await axiosReq({ method, url, body })
-            console.log(result)
             setData(result);
 
         } catch (error) {

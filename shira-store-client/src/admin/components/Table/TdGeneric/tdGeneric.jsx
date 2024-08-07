@@ -7,28 +7,18 @@ export default function TdGeneric({ type, value }) {
     }
     switch (type) {
         case "boolean":
-            return <input type="checkbox" defaultChecked={value} />;
+            return <input type="checkbox" readOnly checked={value} />;
         case "img":
             return <>
-                <img src={value[0].src} className="imgInTd" onClick={toggleElement} />
-                {showElement && <div className="popUp" onClick={toggleElement}><img className="popUpImg" src={value[0].src} /> </div>}
+                <img src={value && value[0]?.src} className="imgInTd" onClick={toggleElement} />
+                {showElement && <div className="popUp" onClick={toggleElement}><img className="popUpImg" src={value && value[0]?.src} /> </div>}
             </>;
-        case "string":
-            return <>
-            <p className="pInTd" onClick={toggleElement}>{value} </p>
-            {showElement && <div className="popUp" onClick={toggleElement}><p className="pPopUp">{value}</p> </div>}
-        </>;
         case "date":
-            // return <p >{timeFormat(value)}</p>;
             return <p >{value}</p>;
-        case "array-string":
-            return <p > {value?.map(e => e)}</p>;
-        case "array-object":
-            return <> 
-            {value?.map(e => <span key={Math.random()}>{e.name} </span>)}
-            </>;
-
         default:
-            return value;
+            return <>
+                <p className="pInTd" onClick={toggleElement}>{value} </p>
+                {showElement && <div className="popUp" onClick={toggleElement}><p className="pPopUp">{value}</p> </div>}
+            </>;
     }
 }

@@ -3,6 +3,7 @@ import { IItem } from "../../models/interfaces/item.interface";
 
 const itemSchema = new mongoose.Schema<IItem>({
     name: { type: String, required: true },
+    mkt: { type:String , require:true , unique:true},
     price: { type: Number, required: true },
     description: { type: String, required: true },
     images: [{ alt: String, src: { type: String, required: true } }],

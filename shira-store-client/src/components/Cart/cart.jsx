@@ -6,53 +6,51 @@ import useCartStore from '../../functions/useCartStore';
 import { FaTrash } from "react-icons/fa";
 
 export default function Cart() {
-  const { cartData, setCartData } = useCartStore();
+  const { cartData, removeFromCart , sumItemsInCart , addToCart , calcPriceInCart} = useCartStore();
   const { hidePopUp } = usePopUpStore();
   const navigate = useNavigate();
   const handleChildClick = (event) => {
     event.stopPropagation();
   };
 
-  function closeCartAndNavToStore() {
+  function closeCartAndNavTo(to) {
     hidePopUp();
-    navigate("/shop");
-  }
-  function closeCartAndNavToCheckOut() {
-    hidePopUp();
-    navigate("/checkout");
-  }
-  function calcSumItems(arr = cartData.items || []) {
-    return Math.round(arr.reduce((sum, item) => sum + item.price, 0) * 100) / 100;
+    navigate(to);
   }
 
   return (
     <div className='Cart'>
       <div className='cartContainer' onClick={handleChildClick}>
         <div className='btnAndTitleContainer'>
-          <h2>סל הקניות שלך ({cartData.items.length})</h2>
+          <h2>סל הקניות שלך ({sumItemsInCart()})</h2>
           <button onClick={hidePopUp}><IoMdClose /></button>
         </div>
-        {cartData.items.length > 0 ? <>
+        {cartData.length > 0 ? <>
           <div className='itemsContainer'>
-            {cartData.items.map((item) => (
+            {cartData.map((item) => (
               <div className='item' key={item?._id}>
                 <img className='img' src={item?.images[0].src} alt={item.name} />
                 <p className='name'>{item.name}</p>
                 <p className='price'>{item.price}₪ </p>
-                <button className='deleteFromCartBtn' onClick={() => setCartData({ ...cartData, items: cartData.items.filter((i) => i.id !== item.id) })}><FaTrash /></button>
+                <div className='addOrDeleteItemsFromCartContainer'>
+
+                <button className='deleteFromCartBtn' onClick={() => {removeFromCart(item)}}>-</button>
+                <p className='inCart'>{item.inCart} </p>
+                <button className='deleteFromCartBtn' onClick={() => {addToCart(item)}}>+</button>
+                </div>
               </div>
             ))}
           </div>
           <div className='sumItems'> 
-            <h2>סה"כ:  {calcSumItems()} ₪</h2>
+            <h2>סה"כ:  {calcPriceInCart()} ₪</h2>
             
           </div>
-          <button className={"btnCheckOut"} onClick={closeCartAndNavToCheckOut}>מעבר לתשלום</button>
+          <button className={"btnCheckOut"} onClick={()=>{closeCartAndNavTo("/checkout")}}>מעבר לתשלום</button>
         </>
           : (
             <p className='noItemP'>
              סל הקניות שלך ריק כרגע.
-              <button onClick={closeCartAndNavToStore} className='toTheStoreBtn'> למעבר לחנות </button>
+              <button onClick={()=>{closeCartAndNavTo("/shop")}} className='toTheStoreBtn'> למעבר לחנות </button>
             </p>
           )}
 

@@ -35,21 +35,22 @@ router.post('/',
     // JWTAuth,
      async (req: Request, res: Response) => {
     try {
-        console.log(req.body)
-        // console.log(req)
+
         const { data } = req.body
-        // const newItem = await itemLogic.createItem(data);
-        // res.status(200).send(newItem)
+        const newItem = await itemLogic.createItem(data);
+        res.status(200).send(newItem)
     } catch (error) {
         res.status(400).send(error)
     }
 })
 
 // update item
-router.put('/', JWTAuth, async (req: Request, res: Response) => {
+router.put('/',
+    //  JWTAuth,
+      async (req: Request, res: Response) => {
     try {
         const { data } = req.body
-        const { _id } = req.query
+        const { _id } = req.body
         const item = await itemLogic.updateItem(_id as string, data);
         res.status(200).send(item)
     } catch (error) {
@@ -58,10 +59,12 @@ router.put('/', JWTAuth, async (req: Request, res: Response) => {
 })
 
 //delete item
-router.delete('/', JWTAuth, async (req: Request, res: Response) => {
+router.delete('/', 
+    // JWTAuth,
+    async (req: Request, res: Response) => {
     try {
-        const { _id } = req.query
-        const item = await itemLogic.deleteItem(_id as string);
+        const { id } = req.body
+        const item = await itemLogic.deleteItem(id as string);
         res.status(200).send(item)
     } catch (error) {
         res.status(400).send(error)

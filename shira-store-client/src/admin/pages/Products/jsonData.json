@@ -1,65 +1,74 @@
 [
     {
         "key": "name",
-        "name": "שם",
-        "type": "string",
-        "sortable": true,
-        "searchable": true
-    },
-    {
-        "key": "quantity",
-        "name": "כמות",
-        "type": "string",
-        "sortable": true,
-        "searchable": true
+        "title": "שם",
+        "type": "text",
+        "required": true,
+        "defaultValue": ""
     },
     {
         "key": "_id",
-        "name": "מזהה",
-        "type": "string",
-        "sortable": true,
-        "searchable": true
+        "title": "מזהה",
+        "type": "id",
+        "required": true,
+        "defaultValue": ""
+    },
+
+    {
+        "key": "mkt",
+        "title": "מספר קטלוג",
+        "type": "text",
+        "required": true,
+        "defaultValue": ""
+    },
+    
+    {
+        "key": "price",
+        "title": "מחיר",
+        "type": "number",
+        "required": true,
+        "defaultValue": ""
+    },
+    {
+        "key": "quantity",
+        "title": "כמות",
+        "type": "number",
+        "required": true,
+        "defaultValue": ""
     },
     {
         "key": "tag",
-        "name": "תגית",
-        "type": "string",
-        "sortable": true,
-        "searchable": true
+        "title": "תגית",
+        "type": "text",
+        "required": true,
+        "defaultValue": ""
     },
     {
         "key": "description",
-        "name": "תיאור",
-        "type": "string",
-        "sortable": true,
-        "searchable": true
+        "title": "תיאור",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": ""
     },
     {
         "key": "usageDescription",
-        "name": "הוראות שימוש",
-        "type": "string",
-        "sortable": true,
-        "searchable": true
+        "title": "הוראות שימוש",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": ""
     },
     {
-        "key": "active",
-        "name": "פעיל",
+        "key": "isActive",
+        "title": "פעיל",
         "type": "boolean",
-        "sortable": true,
-        "searchable": true
+        "required": true,
+        "defaultValue": ""
     },
     {
         "key": "images",
-        "name": "תמונה",
+        "title": "תמונה",
         "type": "img",
-        "sortable": true,
-        "searchable": true
-    },
-    {
-        "key": "price",
-        "name": "מחיר",
-        "type": "string",
-        "sortable": true,
-        "searchable": true
+        "required": false,
+        "defaultValue": ""
     }
 ]

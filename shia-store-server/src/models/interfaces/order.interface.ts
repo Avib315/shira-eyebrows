@@ -1,9 +1,10 @@
 export interface IOrder {
     _id: string; // Unique identifier for the order
     customerInfo: {
-        fullName: string,
-        email: string,
-        phone: string,
+        fullName: string;
+        email: string;
+        phone: string;
+        customerId: number;
     }; // Identifier for the customer who placed the order
     items: Array<{
         _id: string; // Unique identifier for the item in the order
@@ -12,6 +13,7 @@ export interface IOrder {
         price: number;
     }>;
     orderDate: Date;
+    orderId: number;
     status: 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled';
     totalAmount: number;
     shippingAddress: {

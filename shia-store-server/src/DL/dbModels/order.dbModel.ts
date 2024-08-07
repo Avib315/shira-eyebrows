@@ -1,5 +1,6 @@
-import mongoose, { Mongoose } from "mongoose";
+import mongoose, { Mongoose, Schema } from "mongoose";
 import { IOrder } from "../../models/interfaces/order.interface";
+
 
 
 const orderSchema = new mongoose.Schema<IOrder>({
@@ -7,6 +8,7 @@ const orderSchema = new mongoose.Schema<IOrder>({
         fullName: { type: String, required: true },
         email: { type: String, required: true },
         phone: { type: String, required: true },
+        customerId: { type: Number, required: true }, // Moved inside customerInfo
     },
     items: [
         {
@@ -17,6 +19,7 @@ const orderSchema = new mongoose.Schema<IOrder>({
         },
     ],
     orderDate: { type: Date, default: Date.now, required: true },
+    orderId: { type: Number, required: true },
     status: {
         type: String,
         enum: ['pending', 'processing', 'shipped', 'delivered', 'cancelled'],
@@ -42,6 +45,39 @@ const orderSchema = new mongoose.Schema<IOrder>({
     },
 });
 
+
+// Counter Schema
+const counterSchema = new Schema({
+    name: { type: String, required: true, unique: true },
+    seq: { type: Number, default: 1001 },
+});
+
+const Counter = mongoose.model('Counter', counterSchema);
+
+// Pre-save hook to increment customerId and orderId
+orderSchema.pre<IOrder>('save', async function (next) {
+    const customerCounter = await Counter.findOneAndUpdate(
+        { name: 'customerId' },
+        { $inc: { seq: 1 } },
+        { new: true, upsert: true }
+    );
+
+    const orderCounter = await Counter.findOneAndUpdate(
+        { name: 'orderId' },
+        { $inc: { seq: 1 } },
+        { new: true, upsert: true }
+    );
+
+    if (customerCounter) {
+        this.customerInfo.customerId = customerCounter.seq;
+    }
+
+    if (orderCounter) {
+        this.orderId = orderCounter.seq;
+    }
+
+    next();
+});
 
 const orderModel = mongoose.model('order', orderSchema)
 

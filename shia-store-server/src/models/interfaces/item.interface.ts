@@ -1,4 +1,5 @@
 export interface IItem {
+    mkt: string;
     _id?: string;
     name: string;
     price: number;

@@ -8,9 +8,6 @@
     padding: 2%;
     max-width: 520px;
 
-    .itemOrderDisplay:nth-child(even){
-        display: none;
-    }
     .itemOrderDisplay{
         width: 100%;
         display: flex;
@@ -20,9 +17,15 @@
         p{
             font-size: var(--s-f);
             padding: .6rem;
-        }
-        .name{
-            width: 70%;
+            &.inCart{
+                width: 10%;
+                min-width: 20px;
+                display: flex;
+                justify-content: start;
+            }
+            &.name{
+                width: 50%;
+            }
         }
         img{
             width: 60px;

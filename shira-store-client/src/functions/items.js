@@ -9,7 +9,7 @@ export function sendItems(id) {
       images: [{ alt: "1", src: "https://www.anastasiabeverlyhills.com/cdn/shop/products/ABH_090723_TheOriginalBrowKit_Taupe_WEB-Standard_Hero_01_optimized.jpg?v=1693348835&width=1920" }, { alt: "11", src: "https://www.anastasiabeverlyhills.com/cdn/shop/files/ABH_STD_ABH-Essentials-Kit_02_Open_1.jpg?v=1713896347&width=1920"}, { alt: "111", src: "https://www.anastasiabeverlyhills.com/cdn/shop/files/ABH_STD_Discovery-Mini-Bundles_Deluxe-Wiz-Definer_02_1.jpg?v=1712271452&width=1920" }],
       ingredients: ["מים", "גומיות טבעיות", "פולימרים", "שמנים טבעיים", "ויטמין E"],
       colorSet: ["שקוף", "חום בהיר", "חום כהה", "שחור"],
-      inStock: 9,
+      quantity: 9,
       tag: "מקצועי"
     },
     {
@@ -21,7 +21,7 @@ export function sendItems(id) {
       images: [{ alt: "2", src: "https://www.anastasiabeverlyhills.com/cdn/shop/files/ABH_STD_Discovery-Mini-Bundles_Deluxe-Wiz-Definer_02_1.jpg?v=1712271452&width=1920" }],
       ingredients: ["מים", "שעווה טבעית", "פולימרים", "שמנים טבעיים", "ויטמין E"],
       colorSet: ["שקוף", "חום בהיר", "חום כהה"],
-      inStock: 15,
+      quantity: 15,
       tag: "מקצועי"
     },
     {
@@ -33,7 +33,7 @@ export function sendItems(id) {
       images: [{ alt: "3", src: "https://www.anastasiabeverlyhills.com/cdn/shop/files/ABH_STD_ABH-Essentials-Kit_02_Open_1.jpg?v=1713896347&width=1920" }, { alt: "33", src: "https://www.anastasiabeverlyhills.com/cdn/shop/files/ABH_STD_Discovery-Mini-Bundles_Deluxe-Wiz-Definer_02_1.jpg?v=1712271452&width=1920" }],
       ingredients: ["מים", "גומיות טבעיות", "פולימרים", "שמנים טבעיים", "ויטמין E"],
       colorSet: ["חום בהיר", "חום כהה", "שחור"],
-      inStock: 12,
+      quantity: 12,
       tag: "צבעוני"
     },
     {
@@ -45,7 +45,7 @@ export function sendItems(id) {
       images: [{ alt: "4", src: "https://www.anastasiabeverlyhills.com/cdn/shop/files/ABH_CF_BrowDuo_Optimized_Standard_Hero_01_6e15545c-b0fa-42b1-8f75-cd69f438fb2b.jpg?v=1702606417&width=1920" }, { alt: "44", src: "https://www.anastasiabeverlyhills.com/cdn/shop/files/ABH_STD_ABH-Essentials-Kit_02_Open_1.jpg?v=1713896347&width=1920" }, { alt: "444", src: "https://www.anastasiabeverlyhills.com/cdn/shop/files/ABH_STD_Discovery-Mini-Bundles_Deluxe-Wiz-Definer_02_1.jpg?v=1712271452&width=1920" }],
       ingredients: ["אבקה טבעית", "פולימרים", "שמנים טבעיים", "ויטמין E"],
       colorSet: ["חום בהיר", "חום כהה", "שחור"],
-      inStock: 20,
+      quantity: 20,
       tag: "טבעי"
     },
     {
@@ -57,7 +57,7 @@ export function sendItems(id) {
       images: [{ alt: "5", src: "https://www.anastasiabeverlyhills.com/cdn/shop/files/ABH_090723_BrowCareKit_WEB-Standard_Open_Hero_optimized_1.jpg?v=1693950649&width=1920" }, { alt: "55", src: "https://www.anastasiabeverlyhills.com/cdn/shop/files/ABH_STD_Discovery-Mini-Bundles_Deluxe-Wiz-Definer_02_1.jpg?v=1712271452&width=1920" }],
       ingredients: ["פיגמנטים טבעיים", "פולימרים", "שמנים טבעיים", "ויטמין E"],
       colorSet: ["חום בהיר", "חום כהה", "שחור"],
-      inStock: 25,
+      quantity: 25,
       tag: "מדויק"
     },
     {
@@ -69,7 +69,7 @@ export function sendItems(id) {
       images: [{ alt: "6", src: "https://www.anastasiabeverlyhills.com/cdn/shop/files/ABH_STD_Brow-Lash-Styling-Kit_01_Front.jpg?v=1703019057&width=1920" }, { alt: "66", src: "https://www.anastasiabeverlyhills.com/cdn/shop/files/ABH_STD_Discovery-Mini-Bundles_Deluxe-Wiz-Definer_02_1.jpg?v=1712271452&width=1920" }],
       ingredients: ["מים", "פולימרים", "שמנים טבעיים", "ויטמין E"],
       colorSet: ["חום בהיר", "חום כהה", "שחור"],
-      inStock: 10,
+      quantity: 10,
       tag: "פומדה"
     },
     {
@@ -81,7 +81,7 @@ export function sendItems(id) {
       images: [{ alt: "7", src: "https://www.anastasiabeverlyhills.com/cdn/shop/files/ABH_STD_ABH-Essentials-Kit_02_Open_1.jpg?v=1713896347&width=1920" }, { alt: "77", src: "https://www.anastasiabeverlyhills.com/cdn/shop/files/ABH_STD_Discovery-Mini-Bundles_Deluxe-Wiz-Definer_02_1.jpg?v=1712271452&width=1920" }],
       ingredients: ["מים", "פולימרים", "שמנים טבעיים", "ויטמין E", "חומצה היאלורונית"],
       colorSet: ["שקוף"],
-      inStock: 8,
+      quantity: 8,
       tag: "סרום"
     },
     {
@@ -93,7 +93,7 @@ export function sendItems(id) {
       images: [{ alt: "8", src: "https://www.anastasiabeverlyhills.com/cdn/shop/files/ABH_STD_Discovery-Mini-Bundles_Deluxe-Wiz-Definer_02_1.jpg?v=1712271452&width=1920" }],
       ingredients: ["מים", "פולימרים", "שמנים טבעיים", "ויטמין E"],
       colorSet: ["שקוף", "חום בהיר", "חום כהה", "שחור"],
-      inStock: 0,
+      quantity: 0,
       tag: "ערכת גבות"
     }
   ];

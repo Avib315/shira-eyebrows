@@ -3,24 +3,28 @@ import { IItem } from "../../models/interfaces/item.interface"
 import itemModel from "../dbModels/item.dbModel"
 
 
-async function create(admin: IItem) {
-    return itemModel.create(admin)
+async function create(item: IItem) {
+    return itemModel.create(item)
 }
 
 async function read(filter: FilterQuery<IItem>) {
-    return itemModel.find({ ...filter, isActive: true })
+    return itemModel.find({ ...filter })
 }
 
 async function readOne(filter: FilterQuery<IItem>, projection?: ProjectionType<IItem>) {
-    return itemModel.findOne({ ...filter, isActive: true }, projection)
+    return itemModel.findOne({ ...filter
+        // , isActive: true
+     }
+         ,
+          projection)
 }
 
 async function update(id: string, data: UpdateQuery<IItem>) {
-    return itemModel.findOneAndUpdate({ _id: id, isActive: true }, { ...data, updatedAt: new Date() }, { new: true })
+    return itemModel.findOneAndUpdate({ _id: id}, { ...data, updatedAt: new Date() }, { new: true })
 }
 
 async function del(id: string) {
-    return update(id, { isActive: false })
+    return itemModel.findByIdAndDelete(id)
 }
 
 

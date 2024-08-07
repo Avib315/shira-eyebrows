@@ -2,7 +2,7 @@ import './table.scss';
 import TdGeneric from './TdGeneric/tdGeneric';
 import { MdEdit } from "react-icons/md";
 import { IoMdTrash } from "react-icons/io";
-export default function Table({ thead = [], tbody = [], edit , del}) {
+export default function Table({ thead = [], tbody = [], edit, del }) {
 
   return (
 
@@ -13,7 +13,7 @@ export default function Table({ thead = [], tbody = [], edit , del}) {
           <tr>
             {thead.map((th, i) => (
               <th key={"th" + i}>
-                {th.name}
+                {th.title}
 
               </th>
             ))}
@@ -30,12 +30,13 @@ export default function Table({ thead = [], tbody = [], edit , del}) {
                   </td>
                 ))}
                 <td className='iconsTd' >
-                  <button onClick={() => {console.log(row);edit(row)}}><MdEdit /> </button>
-                  <button onClick={() => {del(row) }}><IoMdTrash /> </button>
-                  </td>
+                  <button onClick={() => { edit(row) }}><MdEdit /> </button>
+                  <button onClick={() => { del(row) }}><IoMdTrash /> </button>
+                </td>
               </tr>
             )
           })}
+         
         </tbody>
       </table>
     </div>

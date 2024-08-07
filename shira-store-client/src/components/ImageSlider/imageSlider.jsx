@@ -15,7 +15,7 @@ export default function ImageSlider({ images = [], slide = true, slideTiming = 3
     }
     const handlers = useSwipeable({
         onSwipedLeft: slideRight,
-        onSwipedRight:slideLeft ,
+        onSwipedRight: slideLeft,
         preventDefaultTouchmoveEvent: true,
         trackMouse: true,
         directionalOffset: 200, // Adjust offset as needed
@@ -41,7 +41,7 @@ export default function ImageSlider({ images = [], slide = true, slideTiming = 3
     return (
         <div className='ImageSlider' {...handlers} >
             {images.map((img, i, arr) => (
-                <div className='imageBtnContainer' key={"img-" + i + img.alt} style={{ transform: `translateX(${imageI}%)` }}>
+                <div className='imageBtnContainer' key={"img-" + i  + Math.round()} style={{ transform: `translateX(${imageI}%)` }}>
                     {images.length > 1 && <button className='arrowBtn' onClick={slideRight}><IoMdArrowDropright /></button>}
                     <img src={img.src} alt={img.alt} />
                     {images.length > 1 && <button className='arrowBtn' onClick={slideLeft}><IoMdArrowDropleft /></button>}
@@ -49,7 +49,7 @@ export default function ImageSlider({ images = [], slide = true, slideTiming = 3
                 </div>
             ))}
             <div className='dotsContainer'>
-                {images.length > 1 && images.map((o, i) => (<div key={"dots" + o.alt} className={`dots ${imageI / -100 == i ? "bigDot" : ""}`}></div>))}
+                {images.length > 1 && images.map((o, i) => (<div key={"dots" + i + Math.round()} className={`dots ${imageI / -100 == i ? "bigDot" : ""}`}></div>))}
             </div>
         </div>
     )

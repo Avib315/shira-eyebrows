@@ -1,9 +1,4 @@
 @font-face {
-  font-family: Heebo-regular;
-  src: url(./assets/fonts/Heebo/Heebo-Medium.ttf);
-}
-
-@font-face {
   font-family: Heebo-bold;
   src: url(./assets/fonts/Heebo/Heebo-Bold.ttf);
 }
@@ -11,6 +6,12 @@
 @font-face {
   font-family: Heebo-med;
   src: url(./assets/fonts/Heebo/Heebo-Medium.ttf);
+}
+
+@font-face {
+  font-family: DMSans;
+  src: url(./assets/fonts/Dm/DancingScript-Regular.ttf);
+  // src: url(./assets/fonts/Heebo/Heebo-Medium.ttf);
 }
 
 $breakpoint-sm: 450px;
@@ -57,7 +58,7 @@ $breakpoint-big: 1024px;
 :root {
   --pink: #b67c7b;
   --prime-white: #1b1b1b;
-   --black:#1e1e1e;
+  --black: #1e1e1e;
 }
 
 body {
@@ -66,7 +67,7 @@ body {
 }
 
 * {
-  font-family: Heebo-regular;
+  font-family: Heebo-Med;
   box-sizing: border-box;
 }
 

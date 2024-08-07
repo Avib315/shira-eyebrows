@@ -7,6 +7,7 @@ import { connectDB } from './DL/db';
 import itemRoute from './Routes/item.route'
 import homeImageRoute from './Routes/homeImage.route'
 import adminRoute from './Routes/admin.route'
+import cloudinaryService from './BL/cloudinary/cloudinaryService'
 
 
 dotenv.config()
@@ -16,10 +17,11 @@ const
     PORT: string = process.env.PORT || '3220';
 
 connectDB()
+cloudinaryService.connect()
 app.use(cors());
-app.use(express.urlencoded({ extended: false }))
-app.use(helmet());
-app.use(express.json())
+// app.use(helmet());
+app.use(express.urlencoded({ extended: false, limit: '50mb' }));
+app.use(express.json({ limit: '50mb' }));
 
 app.use('/api/item', itemRoute)
 app.use('/api/homeImage', homeImageRoute)

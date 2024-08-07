@@ -9,7 +9,7 @@ import useCartStore  from '../../functions/useCartStore';
 
 export default function Header({ }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { openCart , cartData} = useCartStore();
+  const { openCart , sumItemsInCart} = useCartStore();
 
   function openCartMenu() {
     openCart()
@@ -30,7 +30,7 @@ export default function Header({ }) {
       </div>
       <h1>Shira<img src={logo} alt="logo" />Eyebrows</h1>
       <div className='btnContainer2'>
-        <button className={"toCartIcon"} onClick={openCartMenu}><IoBagHandleSharp />  <span>{cartData?.items?.length}</span></button>
+        <button className={"toCartIcon"} onClick={openCartMenu}><IoBagHandleSharp />  <span>{sumItemsInCart()}</span></button>
       </div>
 
     </header>

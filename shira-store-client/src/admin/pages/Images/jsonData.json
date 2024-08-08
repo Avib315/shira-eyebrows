@@ -1,0 +1,23 @@
+[
+    {
+        "key": "name",
+        "title": "שם",
+        "type": "text",
+        "required": true,
+        "defaultValue": ""
+    },
+    {
+        "key": "_id",
+        "title": "מזהה",
+        "type": "id",
+        "required": true,
+        "defaultValue": ""
+    },
+    {
+        "key": "images",
+        "title": "תמונה",
+        "type": "img",
+        "required": false,
+        "defaultValue": ""
+    }
+]

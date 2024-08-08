@@ -1,71 +1,67 @@
-{
-    "thead": [
-        {
-            "key": "name",
-            "name": "שם",
-            "type": "string",
-            "sortable": true,
-            "searchable": true
-        },
- 
-        {
-            "key": "quantity",
-            "name": "כמות",
-            "type": "string",
-            "sortable": true,
-            "searchable": true
-        },
-        {
-            "key": "_id",
-            "name": "מזהה",
-            "type": "string",
-            "sortable": true,
-            "searchable": true
-        },
-        {
-            "key": "tag",
-            "name": "תגית",
-            "type": "string",
-            "sortable": true,
-            "searchable": true
-        },
-        {
-            "key": "description",
-            "name": "תיאור",
-            "type": "string",
-            "sortable": true,
-            "searchable": true
-        },
-        {
-            "key": "usageDescription",
-            "name": "הוראות שימוש",
-            "type": "string",
-            "sortable": true,
-            "searchable": true
-        },
-        {
-            "key": "active",
-            "name": "פעיל",
-            "type": "boolean",
-            "sortable": true,
-            "searchable": true
-        },
-        {
-            "key": "img",
-            "name": "תמונה",
-            "type": "img",
-            "sortable": true,
-            "searchable": true
-        },
-        {
-            "key": "price",
-            "name": "מחיר",
-            "type": "string",
-            "sortable": true,
-            "searchable": true
-        }
-    ],
-    "tbody": [
-        
-    ]
-}
+[
+    {
+        "key": "fullName",
+        "title": "שם הקונה",
+        "type": "text",
+        "required": true,
+        "defaultValue": ""
+    },
+    {
+        "key": "_id",
+        "title": "מזהה",
+        "type": "id",
+        "required": true,
+        "defaultValue": ""
+    },
+
+    {
+        "key": "orderDate",
+        "title": "תאריך הזמנה",
+        "type": "text",
+        "required": true,
+        "defaultValue": ""
+    },
+    
+    {
+        "key": "orderId",
+        "title": "מס הזמנה",
+        "type": "number",
+        "required": true,
+        "defaultValue": ""
+    },
+    {
+        "key": "status",
+        "title": "סטטוס",
+        "type": "number",
+        "required": true,
+        "defaultValue": ""
+    },
+    {
+        "key": "tag",
+        "title": "תגית",
+        "type": "text",
+        "required": true,
+        "defaultValue": ""
+    },
+    {
+        "key": "shippingAddress",
+        "title": "כתובת משלוח",
+        "type": "object",
+        "required": true,
+        "defaultValue": ""
+    },
+    {
+        "key": "paymentMethod",
+        "title": "סוג תשלום",
+        "type": "text",
+        "required": true,
+        "defaultValue": ""
+    },
+    {
+        "key": "isActive",
+        "title": "פעיל",
+        "type": "boolean",
+        "required": true,
+        "defaultValue": ""
+    }
+]

@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom'
 import { MdDashboard, MdOutlineClose } from "react-icons/md";
 import { BsCartPlusFill } from "react-icons/bs";
 import { IoHome } from "react-icons/io5";
-import { FaBars, FaClipboard } from 'react-icons/fa';
+import { FaImage } from "react-icons/fa6";
+import { FaBars, FaClipboard , FaRegImage} from 'react-icons/fa';
 import { useState } from 'react';
 import { CiLogout } from "react-icons/ci";
 import { UseUserInfo } from '../../store/UseUserInfo';
-
 export default function Header() {
   const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,7 +17,8 @@ export default function Header() {
     { link: "/", text: "מסך הבית", icon: <IoHome /> },
     { link: "/dashboard", text: "דשבורד", icon: <MdDashboard /> },
     { link: "/products", text: "מוצרים", icon: <BsCartPlusFill /> },
-    { link: "/orders", text: "הזמנות", icon: <FaClipboard /> }
+    { link: "/orders", text: "הזמנות", icon: <FaClipboard /> },
+    { link: "/images", text: "תמונות", icon: <FaImage /> }
   ]
   const setNavigate = (to) => {
     setMenuOpen(false)

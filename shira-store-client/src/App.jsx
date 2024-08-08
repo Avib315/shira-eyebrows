@@ -12,6 +12,7 @@ import Orders from './admin/pages/Orders/orders';
 import Products from './admin/pages/Products/products';
 import CheckLogin from './admin/pages/CheckLogin/checkLogin';
 import Dashboard from './admin/pages/Dashboard/dashboard';
+import Images from './admin/pages/Images/images';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route path='dashboard' element={<Dashboard />} />
               <Route path='orders' element={<Orders />} />
               <Route path='products' element={<Products />} />
+              <Route path='images' element={<Images />} />
             </Route>
             <Route path='/*' element={<NotFound />} />
           </Routes>

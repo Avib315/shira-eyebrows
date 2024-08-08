@@ -6,6 +6,13 @@ import { IOrder } from "../../models/interfaces/order.interface"
 async function create(item: IOrder) {
     return orderModel.create(item)
 }
+async function deleteAll() {
+    await orderModel.deleteMany({})
+    console.log('orders deleted successfully');
+
+}
+
+// deleteAll()
 
 async function read(filter: FilterQuery<IOrder>) {
     return orderModel.find({ ...filter })
@@ -25,7 +32,7 @@ async function update(id: string, data: UpdateQuery<IOrder>) {
 }
 
 async function del(id: string) {
-    return orderModel.findByIdAndDelete(id)
+    return update(id, { isActive: false })
 }
 
 

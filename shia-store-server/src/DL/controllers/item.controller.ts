@@ -12,19 +12,20 @@ async function read(filter: FilterQuery<IItem>) {
 }
 
 async function readOne(filter: FilterQuery<IItem>, projection?: ProjectionType<IItem>) {
-    return itemModel.findOne({ ...filter
+    return itemModel.findOne({
+        ...filter
         // , isActive: true
-     }
-         ,
-          projection)
+    }
+        ,
+        projection)
 }
 
 async function update(id: string, data: UpdateQuery<IItem>) {
-    return itemModel.findOneAndUpdate({ _id: id}, { ...data, updatedAt: new Date() }, { new: true })
+    return itemModel.findOneAndUpdate({ _id: id }, { ...data, updatedAt: new Date() }, { new: true })
 }
 
 async function del(id: string) {
-    return itemModel.findByIdAndDelete(id)
+    return update(id, { isActive: false })
 }
 
 

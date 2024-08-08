@@ -16,7 +16,7 @@ async function readOne(filter: FilterQuery<IAdmin>, projection?: ProjectionType<
 }
 
 async function update(id: string, data: UpdateQuery<IAdmin>) {
-    return adminModel.findOneAndUpdate({ _id: id, isActive: true }, { ...data, updatedAt: new Date() }, { new: true })
+    return adminModel.findOneAndUpdate({ _id: id }, { ...data, updatedAt: new Date() }, { new: true })
 }
 
 async function del(id: string) {

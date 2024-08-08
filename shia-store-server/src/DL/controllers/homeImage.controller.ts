@@ -8,20 +8,19 @@ async function create(admin: IHomeImage) {
 }
 
 async function read(filter: FilterQuery<IHomeImage>) {
-    return homeImageModel.find({ ...filter, isActive: true })
+    return homeImageModel.find({ ...filter })
 }
 
 async function readOne(filter: FilterQuery<IHomeImage>, projection?: ProjectionType<IHomeImage>) {
-    return homeImageModel.findOne({ ...filter, isActive: true }, projection)
+    return homeImageModel.findOne({ ...filter }, projection)
 }
 
 async function update(id: string, data: UpdateQuery<IHomeImage>) {
-    return homeImageModel.findOneAndUpdate({ _id: id, isActive: true }, { ...data, updatedAt: new Date() }, { new: true })
+    return homeImageModel.findOneAndUpdate({ _id: id }, { ...data, updatedAt: new Date() }, { new: true })
 }
 
 async function del(id: string) {
     return update(id, { isActive: false })
-    // return homeImageDbModel.findByIdAndUpdate(id, { isActive: false }){}
 }
 
 

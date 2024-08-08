@@ -25,5 +25,6 @@ export interface IOrder {
     };
     paymentMethod: 'credit_card' | 'paypal' | 'bank_transfer' | 'cash_on_delivery';
     paymentStatus: 'pending' | 'paid' | 'failed' | 'refunded';
+    isActive: boolean;
 }
 

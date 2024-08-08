@@ -1,14 +1,13 @@
-import mongoose, { Mongoose, Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import { IOrder } from "../../models/interfaces/order.interface";
 
-
-
+// Order Schema
 const orderSchema = new mongoose.Schema<IOrder>({
     customerInfo: {
         fullName: { type: String, required: true },
         email: { type: String, required: true },
         phone: { type: String, required: true },
-        customerId: { type: Number, required: true }, // Moved inside customerInfo
+        customerId: { type: Number }, // Moved inside customerInfo
     },
     items: [
         {
@@ -19,7 +18,7 @@ const orderSchema = new mongoose.Schema<IOrder>({
         },
     ],
     orderDate: { type: Date, default: Date.now, required: true },
-    orderId: { type: Number, required: true },
+    orderId: { type: Number },
     status: {
         type: String,
         enum: ['pending', 'processing', 'shipped', 'delivered', 'cancelled'],
@@ -43,13 +42,13 @@ const orderSchema = new mongoose.Schema<IOrder>({
         enum: ['pending', 'paid', 'failed', 'refunded'],
         required: true,
     },
+    isActive: { type: Boolean, default: true },
 });
-
 
 // Counter Schema
 const counterSchema = new Schema({
     name: { type: String, required: true, unique: true },
-    seq: { type: Number, default: 1001 },
+    seq: { type: Number, default: 1000 }, // Start from 1000
 });
 
 const Counter = mongoose.model('Counter', counterSchema);
@@ -58,13 +57,13 @@ const Counter = mongoose.model('Counter', counterSchema);
 orderSchema.pre<IOrder>('save', async function (next) {
     const customerCounter = await Counter.findOneAndUpdate(
         { name: 'customerId' },
-        { $inc: { seq: 1 } },
+        { $inc: { seq: 1 } }, // Increment by 1
         { new: true, upsert: true }
     );
 
     const orderCounter = await Counter.findOneAndUpdate(
         { name: 'orderId' },
-        { $inc: { seq: 1 } },
+        { $inc: { seq: 1 } }, // Increment by 1
         { new: true, upsert: true }
     );
 
@@ -79,7 +78,6 @@ orderSchema.pre<IOrder>('save', async function (next) {
     next();
 });
 
-const orderModel = mongoose.model('order', orderSchema)
-
+const orderModel = mongoose.model('order', orderSchema);
 
 export default orderModel;

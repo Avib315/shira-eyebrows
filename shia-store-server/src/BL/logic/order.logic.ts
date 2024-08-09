@@ -152,13 +152,23 @@ const orders = [
 
 
 async function getOrder(filter: FilterQuery<IOrder>, projection?: ProjectionType<IOrder>) {
-    return orderController.readOne(filter, projection);
+    return orderController.readOne({ ...filter, isActive: true }, projection);
 }
 
 async function getManyOrders(filter: FilterQuery<IOrder>) {
-    const orders = await orderController.read(filter);
+    const orders = await orderController.read({ ...filter, isActive: true });
     return orders
 }
+
+async function getDeletedOrder(filter: FilterQuery<IOrder>, projection?: ProjectionType<IOrder>) {
+    return orderController.readOne({ ...filter, isActive: false }, projection);
+}
+
+async function getManyDeletedOrders(filter: FilterQuery<IOrder>) {
+    const orders = await orderController.read({ ...filter, isActive: false });
+    return orders
+}
+
 
 
 async function updateOrder(id: string, data: UpdateQuery<IOrder>) {
@@ -176,4 +186,4 @@ async function deleteOrder(id: string) {
 
 
 
-export default { createOrder, getOrder, getManyOrders, updateOrder, deleteOrder }
+export default { createOrder, getOrder, getManyOrders, updateOrder, deleteOrder, getDeletedOrder, getManyDeletedOrders }

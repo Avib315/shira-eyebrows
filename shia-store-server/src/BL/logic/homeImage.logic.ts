@@ -9,11 +9,19 @@ async function createHomeImage(homeImage: IHomeImage) {
 }
 
 async function getHomeImage(filter: FilterQuery<IHomeImage>, projection?: ProjectionType<IHomeImage>) {
-    return homeImageController.readOne(filter, projection);
+    return homeImageController.readOne({ ...filter, isActive: true }, projection);
 }
 
 async function getManyHomeImages(filter: FilterQuery<IHomeImage>) {
-    return homeImageController.read(filter);
+    return homeImageController.read({ ...filter, isActive: true });
+}
+
+async function getDeletedHomeImage(filter: FilterQuery<IHomeImage>, projection?: ProjectionType<IHomeImage>) {
+    return homeImageController.readOne({ ...filter, isActive: false }, projection);
+}
+
+async function getManyDeletedHomeImages(filter: FilterQuery<IHomeImage>) {
+    return homeImageController.read({ ...filter, isActive: false });
 }
 
 
@@ -30,4 +38,4 @@ async function deleteHomeImage(id: string) {
 
 
 
-export default { createHomeImage, getHomeImage, getManyHomeImages, updateHomeImage, deleteHomeImage }
+export default { createHomeImage, getHomeImage, getManyHomeImages, updateHomeImage, deleteHomeImage, getDeletedHomeImage, getManyDeletedHomeImages }

@@ -1,6 +1,6 @@
 export interface IItem {
+    _id: string;
     mkt: string;
-    _id?: string;
     name: string;
     price: number;
     description: string;
@@ -8,7 +8,7 @@ export interface IItem {
     ingredients: string[];
     colorSet?: string[];
     quantity: number;
-    usageDescription:string,
+    usageDescription: string,
     tag: string;
     createAt: Date;
     updatedAt: Date;

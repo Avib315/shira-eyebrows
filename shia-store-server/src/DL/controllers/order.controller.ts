@@ -15,16 +15,11 @@ async function deleteAll() {
 // deleteAll()
 
 async function read(filter: FilterQuery<IOrder>) {
-    return orderModel.find({ ...filter })
+    return orderModel.find(filter)
 }
 
 async function readOne(filter: FilterQuery<IOrder>, projection?: ProjectionType<IOrder>) {
-    return orderModel.findOne({
-        ...filter
-        // , isActive: true
-    }
-        ,
-        projection)
+    return orderModel.findOne(filter, projection)
 }
 
 async function update(id: string, data: UpdateQuery<IOrder>) {

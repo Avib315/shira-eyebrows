@@ -8,16 +8,11 @@ async function create(item: IItem) {
 }
 
 async function read(filter: FilterQuery<IItem>) {
-    return itemModel.find({ ...filter })
+    return itemModel.find(filter)
 }
 
 async function readOne(filter: FilterQuery<IItem>, projection?: ProjectionType<IItem>) {
-    return itemModel.findOne({
-        ...filter
-        // , isActive: true
-    }
-        ,
-        projection)
+    return itemModel.findOne(filter, projection)
 }
 
 async function update(id: string, data: UpdateQuery<IItem>) {

@@ -29,38 +29,70 @@ router.get('/many', async (req: Request, res: Response) => {
     }
 })
 
+// get deleted image
+router.get('/',
+    JWTAuth,
+    async (req: Request, res: Response) => {
+        try {
+            const filter = req.query
+            const homeImage = await homeImageLogic.getDeletedHomeImage(filter)
+            res.status(200).send(homeImage)
+        } catch (error) {
+            res.status(400).send(error)
+        }
+    })
+
+// get many deleted homeImages
+router.get('/many',
+    JWTAuth,
+    async (req: Request, res: Response) => {
+        try {
+            const filter = req.query
+            const homeImages = await homeImageLogic.getManyDeletedHomeImages(filter)
+            res.status(200).send(homeImages)
+        } catch (error) {
+            res.status(400).send(error)
+        }
+    })
+
 // create homeImage
-router.post('/', JWTAuth, async (req: Request, res: Response) => {
-    try {
-        const { data } = req.body
-        const newHomeImage = await homeImageLogic.createHomeImage(data);
-        res.status(200).send(newHomeImage)
-    } catch (error) {
-        res.status(400).send(error)
-    }
-})
+router.post('/',
+    JWTAuth,
+    async (req: Request, res: Response) => {
+        try {
+            const { data } = req.body
+            const newHomeImage = await homeImageLogic.createHomeImage(data);
+            res.status(200).send(newHomeImage)
+        } catch (error) {
+            res.status(400).send(error)
+        }
+    })
 
 // update homeImage
-router.put('/', JWTAuth, async (req: Request, res: Response) => {
-    try {
-        const { data } = req.body
-        const { _id } = req.query
-        const homeImage = await homeImageLogic.updateHomeImage(_id as string, data);
-        res.status(200).send(homeImage)
-    } catch (error) {
-        res.status(400).send(error)
-    }
-})
+router.put('/',
+    JWTAuth,
+    async (req: Request, res: Response) => {
+        try {
+            const { data } = req.body
+            const { _id } = req.query
+            const homeImage = await homeImageLogic.updateHomeImage(_id as string, data);
+            res.status(200).send(homeImage)
+        } catch (error) {
+            res.status(400).send(error)
+        }
+    })
 
 //delete homeImage
-router.delete('/', JWTAuth, async (req: Request, res: Response) => {
-    try {
-        const { _id } = req.query
-        const homeImage = await homeImageLogic.deleteHomeImage(_id as string);
-        res.status(200).send(homeImage)
-    } catch (error) {
-        res.status(400).send(error)
-    }
-})
+router.delete('/',
+    JWTAuth,
+    async (req: Request, res: Response) => {
+        try {
+            const { _id } = req.query
+            const homeImage = await homeImageLogic.deleteHomeImage(_id as string);
+            res.status(200).send(homeImage)
+        } catch (error) {
+            res.status(400).send(error)
+        }
+    })
 
 export default router

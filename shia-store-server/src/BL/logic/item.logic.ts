@@ -16,13 +16,23 @@ async function createItem(item: IItem) {
 }
 
 async function getItem(filter: FilterQuery<IItem>, projection?: ProjectionType<IItem>) {
-    return itemController.readOne(filter, projection);
+    return itemController.readOne({ ...filter, isActive: true }, projection);
 }
 
 async function getManyItems(filter: FilterQuery<IItem>) {
-    const items = await itemController.read(filter);
+    const items = await itemController.read({ ...filter, isActive: true });
     return items
 }
+
+async function getDeletedItem(filter: FilterQuery<IItem>, projection?: ProjectionType<IItem>) {
+    return itemController.readOne({ ...filter, isActive: false }, projection);
+}
+
+async function getManyDeletedItems(filter: FilterQuery<IItem>) {
+    const items = await itemController.read({ ...filter, isActive: false });
+    return items
+}
+
 
 
 async function updateItem(id: string, data: UpdateQuery<IItem>) {
@@ -40,4 +50,4 @@ async function deleteItem(id: string) {
 
 
 
-export default { createItem, getItem, getManyItems, updateItem, deleteItem }
+export default { createItem, getItem, getManyItems, updateItem, deleteItem, getDeletedItem, getManyDeletedItems }

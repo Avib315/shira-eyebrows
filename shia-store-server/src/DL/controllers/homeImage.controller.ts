@@ -8,11 +8,11 @@ async function create(admin: IHomeImage) {
 }
 
 async function read(filter: FilterQuery<IHomeImage>) {
-    return homeImageModel.find({ ...filter })
+    return homeImageModel.find(filter)
 }
 
 async function readOne(filter: FilterQuery<IHomeImage>, projection?: ProjectionType<IHomeImage>) {
-    return homeImageModel.findOne({ ...filter }, projection)
+    return homeImageModel.findOne(filter, projection)
 }
 
 async function update(id: string, data: UpdateQuery<IHomeImage>) {

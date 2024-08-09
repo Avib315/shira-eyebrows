@@ -29,45 +29,71 @@ router.get('/many', async (req: Request, res: Response) => {
     }
 })
 
-// create item
-router.post('/', 
-    // JWTAuth,
-     async (req: Request, res: Response) => {
-    try {
+// get item deleted
+router.get('/deleted',
+    JWTAuth,
+    async (req: Request, res: Response) => {
+        try {
+            const filter = req.query
+            const item = await itemLogic.getDeletedItem(filter)
+            res.status(200).send(item)
+        } catch (error) {
+            res.status(400).send(error)
+        }
+    })
 
-        const { data } = req.body
-        const newItem = await itemLogic.createItem(data);
-        res.status(200).send(newItem)
-    } catch (error) {
-        res.status(400).send(error)
-    }
-})
+// get many deleted items
+router.get('/many/deleted',
+    JWTAuth,
+    async (req: Request, res: Response) => {
+        try {
+            const filter = req.query
+            const items = await itemLogic.getManyDeletedItems(filter)
+            res.status(200).send(items)
+        } catch (error) {
+            res.status(400).send(error)
+        }
+    })
+
+// create item
+router.post('/',
+    JWTAuth,
+    async (req: Request, res: Response) => {
+        try {
+
+            const { data } = req.body
+            const newItem = await itemLogic.createItem(data);
+            res.status(200).send(newItem)
+        } catch (error) {
+            res.status(400).send(error)
+        }
+    })
 
 // update item
 router.put('/',
     //  JWTAuth,
-      async (req: Request, res: Response) => {
-    try {
-        const { data } = req.body
-        const { _id } = req.body
-        const item = await itemLogic.updateItem(_id as string, data);
-        res.status(200).send(item)
-    } catch (error) {
-        res.status(400).send(error)
-    }
-})
+    async (req: Request, res: Response) => {
+        try {
+            const { data } = req.body
+            const { _id } = req.body
+            const item = await itemLogic.updateItem(_id as string, data);
+            res.status(200).send(item)
+        } catch (error) {
+            res.status(400).send(error)
+        }
+    })
 
 //delete item
-router.delete('/', 
-    // JWTAuth,
+router.delete('/',
+    JWTAuth,
     async (req: Request, res: Response) => {
-    try {
-        const { id } = req.body
-        const item = await itemLogic.deleteItem(id as string);
-        res.status(200).send(item)
-    } catch (error) {
-        res.status(400).send(error)
-    }
-})
+        try {
+            const { id } = req.body
+            const item = await itemLogic.deleteItem(id as string);
+            res.status(200).send(item)
+        } catch (error) {
+            res.status(400).send(error)
+        }
+    })
 
 export default router

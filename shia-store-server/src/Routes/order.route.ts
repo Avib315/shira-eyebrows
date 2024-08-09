@@ -9,7 +9,7 @@ const router = express.Router()
 
 // get order
 router.get('/',
-    // JWTAuth,,
+    JWTAuth,
     async (req: Request, res: Response) => {
         try {
             const filter = req.query
@@ -22,11 +22,37 @@ router.get('/',
 
 // get many orders
 router.get('/many',
-    // JWTAuth,
+    JWTAuth,
     async (req: Request, res: Response) => {
         try {
             const filter = req.query
             const orders = await orderLogic.getManyOrders(filter)
+            res.status(200).send(orders)
+        } catch (error) {
+            res.status(400).send(error)
+        }
+    })
+
+// get deleted order
+router.get('/',
+    JWTAuth,
+    async (req: Request, res: Response) => {
+        try {
+            const filter = req.query
+            const order = await orderLogic.getDeletedOrder(filter)
+            res.status(200).send(order)
+        } catch (error) {
+            res.status(400).send(error)
+        }
+    })
+
+// get many deleted orders
+router.get('/many',
+    JWTAuth,
+    async (req: Request, res: Response) => {
+        try {
+            const filter = req.query
+            const orders = await orderLogic.getManyDeletedOrders(filter)
             res.status(200).send(orders)
         } catch (error) {
             res.status(400).send(error)
@@ -48,7 +74,7 @@ router.post('/',
 
 // update order
 router.put('/',
-    //  JWTAuth,
+    JWTAuth,
     async (req: Request, res: Response) => {
         try {
             const { data } = req.body
@@ -60,17 +86,17 @@ router.put('/',
         }
     })
 
-// //delete order
-// router.delete('/', 
-//     // JWTAuth,
-//     async (req: Request, res: Response) => {
-//     try {
-//         const { id } = req.body
-//         const order = await orderLogic.deleteOrder(id as string);
-//         res.status(200).send(order)
-//     } catch (error) {
-//         res.status(400).send(error)
-//     }
-// })
+//delete order
+router.delete('/',
+    JWTAuth,
+    async (req: Request, res: Response) => {
+        try {
+            const { id } = req.body
+            const order = await orderLogic.deleteOrder(id as string);
+            res.status(200).send(order)
+        } catch (error) {
+            res.status(400).send(error)
+        }
+    })
 
 export default router

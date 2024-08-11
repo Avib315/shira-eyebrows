@@ -1,10 +1,11 @@
-.InputFile {
+.ImageUploader {
     width: 90%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: .4rem 0;
+    justify-content: space-between;
 
     label {
         max-width: 400px;
@@ -18,52 +19,69 @@
         cursor: pointer;
         background: #fff;
         color: var(--pink);
-        transition: .2s;
-        margin: .4rem;
-        
-        p {
-            font-size: var(--s-f);
-        }
-        &:hover div.iconAnTitleContainer{
-            // font-weight: 700;
-            transform: scale(1.1);
-        }
-        &:hover{
+        transition: 0.2s;
+        margin: 0.4rem;
+    
+        &:hover {
             border-color: #727272;
+    
+            div.iconAnTitleContainer {
+                // font-weight: 700;
+                transform: scale(1.1);
+            }
         }
+    
+        &:has(input:disabled) {
+            border-color: #ccc;
+            cursor: not-allowed;
+    
+            &:hover {
+                transform: none;
+                border-color: #ccc;
+                div.iconAnTitleContainer {
+                    // font-weight: 700;
+                    transform: scale(1);
+                }
+            }
+        }
+    
         div.iconAnTitleContainer {
-            transition: .2s;
+            transition: 0.2s;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            font-size: 2rem;
-            margin-bottom: 10px;
             font-size: 3rem;
+            margin-bottom: 10px;
         }
-        span{
+    
+        span {
             font-size: var(--m-f);
             color: var(--black);
         }
+    
         input {
             visibility: hidden;
             display: none;
         }
     }
-    .hiddenInput{
+    
+    .hiddenInput {
         display: none;
     }
+
     .imagesContainer {
         margin-top: .4rem;
         max-width: 400px;
         width: 100%;
         padding: 1rem 0;
         overflow-x: hidden;
-        overflow-y: auto;
         display: flex;
         flex-direction: column;
         gap: .4rem;
-        div{
+        height: 40%;
+
+        div {
             width: 100%;
             height: 70px;
             display: flex;
@@ -72,7 +90,7 @@
             align-items: center;
             border: 1px solid #333;
             align-items: center;
-            
+
             img {
                 border-radius: inherit;
                 width: 68px;
@@ -80,9 +98,21 @@
                 object-fit: auto;
                 background-color: #fff;
                 border: 1px dotted #ccc;
-      
+
             }
-            div.deleteImg{
+
+            p {
+                /* max-width: 100px; */
+                overflow: hidden;
+                width: 50%;
+                text-overflow: ellipsis;
+                display: block;
+                line-clamp: 3;
+                -webkit-box-orient: vertical;
+                white-space: unset;
+            }
+
+            div.deleteImg {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -94,10 +124,27 @@
                 width: 68px;
                 height: 68px;
                 transition: .4s;
-                &:hover{
+
+                &:hover {
                     color: var(--pink);
                 }
             }
         }
+    }
+
+    .buttonUpload {
+        padding: .4rem .6rem;
+        background-color: var(--black);
+        color: #fff;
+        border-radius: 12px;
+        border: none;
+        font-size: var(--m-f);
+        transition: .2s;
+
+        &:hover {
+            color: var(--pink);
+            transform: scale(1.1);
+        }
+
     }
 }

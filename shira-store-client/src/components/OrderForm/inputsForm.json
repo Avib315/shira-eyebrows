@@ -1,0 +1,53 @@
+[
+    {
+        "title": "פרטי קשר",
+        "inputs": [
+            {
+                "label": "שם מלא",
+                "type": "text",
+                "name": "fullName",
+                "required": true
+            },
+            {
+                "label": "אימייל",
+                "type": "email",
+                "name": "email",
+                "required": true
+            },
+            {
+                "label": "טלפון",
+                "type": "tel",
+                "name": "phone",
+                "required": true
+            }
+        ]
+    },
+    {
+        "title": "כתובת למשלוח",
+        "inputs": [
+            {
+                "label": "",
+                "type": "address",
+                "name": "",
+                "required": true
+            }
+        ]
+    },
+    {
+        "title": "",
+        "inputs": [
+            {
+                "label": "קראתי ואני מאשר את תנאי השימוש",
+                "type": "checkbox",
+                "name": "termsAccepted",
+                "required": true
+            }
+        ]
+    },
+    {
+        "label": "קראתי ואני מאשר את תנאי השימוש",
+        "type": "checkbox",
+        "name": "termsAccepted",
+        "required": true
+    }
+]

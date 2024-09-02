@@ -20,7 +20,9 @@ async function getItem(filter: FilterQuery<IItem>, projection?: ProjectionType<I
 }
 
 async function getManyItems(filter: FilterQuery<IItem>) {
+    console.log("________ HERE");
     const items = await itemController.read({ ...filter, isActive: true });
+    console.log(items);
     return items
 }
 

@@ -29,7 +29,7 @@ export default function Cart() {
           <div className='itemsContainer'>
             {cartData.map((item) => (
               <div className='item' key={item?._id}>
-                <img className='img' src={item?.images[0].src} alt={item.name} />
+                <img className='img' src={item?.images[0]?.src} alt={item.name} />
                 <p className='name'>{item.name}</p>
                 <p className='price'>{item.price}₪ </p>
                 <div className='addOrDeleteItemsFromCartContainer'>

@@ -22,7 +22,7 @@ export default function TableOrder() {
             <h2>סיכום הזמנה</h2>
             {cartData.length >= 1 && cartData.map((item, i) => (
                 <div className='itemOrderDisplay' key={"itemOrderDisplay-key-" + i}>
-                    <img src={item.images[0].src} alt={item.images[0].alt} />
+                    <img src={item.images[0]?.src} alt={item.images[0].alt} />
                     <p className='p name'>{item.name}</p>
                     <p className='p inCart'>x{item.inCart}</p>
                     <p className='p'>{item.price}₪ </p>

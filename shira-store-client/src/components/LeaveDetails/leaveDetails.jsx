@@ -1,7 +1,7 @@
 import './leaveDetails.scss' 
 import logo from '../../assets/logo.svg'
 import Button from '../Button/button';
-import { Input } from '../Input/input';
+import { InputTypeField } from '../InputTypeField/inputTypeField';
 export default function LeaveDetails(){
   const handleChildClick = (event) => {
     event.stopPropagation();
@@ -16,9 +16,9 @@ export default function LeaveDetails(){
 <p>השאירי פרטים ונחזור אלייך בהקדם</p>
 <img src={logo} alt="logo" />
 <form onSubmit={submitHandler}>
-  <Input name="fullName" required={true} type="text" placeholder="שם מלא"/>
-  <Input name="email" required={true} type="email" placeholder="אימייל"/>
-  <Input name="phoneNumber" required={true} type="tel" placeholder="מס טלפון"/>
+  <InputTypeField name="fullName" required={true} type="text" placeholder="שם מלא"/>
+  <InputTypeField name="email" required={true} type="email" placeholder="אימייל"/>
+  <InputTypeField name="phoneNumber" required={true} type="tel" placeholder="מס טלפון"/>
   <Button type="submit" title={"שליחה"}/>
 </form>
 </div>

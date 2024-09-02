@@ -21,8 +21,10 @@ router.get('/', async (req: Request, res: Response) => {
 // get many items
 router.get('/many', async (req: Request, res: Response) => {
     try {
+        
         const filter = req.query
         const items = await itemLogic.getManyItems(filter)
+       
         res.status(200).send(items)
     } catch (error) {
         res.status(400).send(error)
